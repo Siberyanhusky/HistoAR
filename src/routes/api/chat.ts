@@ -1,12 +1,13 @@
 // Port dari api/chat.js jadi TanStack Start server route.
-// Kirim env var KIE_AI_API_KEY di deployment (Vercel/Cloudflare/dst) supaya jalan.
+// Kirim env var GEMINI_API_KEY di deployment (Vercel/dst) supaya jalan.
 
 import { createFileRoute } from "@tanstack/react-router";
+import { GoogleGenAI } from "@google/genai";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
-const API_URL = "https://api.kie.ai/gemini-2.5-flash/v1/chat/completions";
+const MODEL = "gemini-3.6-flash";
 
 function cariMateri(id: string) {
   return (materiData as MateriData).materi.find((m) => m.id === id);
@@ -74,26 +75,23 @@ export const Route = createFileRoute("/api/chat")({
             return Response.json({ error: "Materi tidak ditemukan" }, { status: 400 });
           }
 
-          const prompt = buatPrompt(materi.judul, materi.ringkasan, pertanyaan);
-
-          const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${process.env.KIE_AI_API_KEY ?? ""}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              messages: [{ role: "user", content: [{ type: "text", text: prompt }] }],
-            }),
-          });
-
-          const json = await response.json();
-
-          if (!response.ok) {
-            return Response.json(json, { status: response.status });
+          const apiKey = process.env.GEMINI_API_KEY;
+          if (!apiKey) {
+            return Response.json(
+              { error: "GEMINI_API_KEY belum diset di environment variables." },
+              { status: 500 },
+            );
           }
 
-          const reply = json.choices?.[0]?.message?.content ?? "Maaf, tidak ada balasan dari AI.";
+          const prompt = buatPrompt(materi.judul, materi.ringkasan, pertanyaan);
+          const ai = new GoogleGenAI({ apiKey });
+
+          const response = await ai.models.generateContent({
+            model: MODEL,
+            contents: prompt,
+          });
+
+          const reply = response.text ?? "Maaf, tidak ada balasan dari AI.";
 
           return Response.json({ reply });
         } catch (err) {

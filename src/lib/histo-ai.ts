@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
+import { GoogleGenAI } from "@google/genai";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
@@ -11,7 +12,7 @@ type ChatMessage = {
 
 // Korpus materi HistoAR (judul + ringkasan ke-17 materi) disuntik ke prompt
 // supaya jawaban benar-benar bersumber dari materi, bukan pengetahuan model.
-// Ringkasan total ~2.8KB — ringan untuk dikirim tiap pesan.
+// Ringkasan total ~2.8KB, ringan untuk dikirim tiap pesan.
 const MATERI_KORPUS = (materiData as MateriData).materi
   .map((m) => `## ${m.judul}\n${m.ringkasan}`)
   .join("\n\n");
@@ -72,6 +73,20 @@ Do not explain.
 // membengkakkan token (biaya) atau menyelundupkan instruksi panjang.
 const MAX_HISTORY_MESSAGES = 10;
 
+const MODEL = "gemini-3.6-flash";
+
+let genAI: GoogleGenAI | null = null;
+function getClient(): GoogleGenAI {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "GEMINI_API_KEY is not set. Add it in your Vercel project's Environment Variables.",
+    );
+  }
+  if (!genAI) genAI = new GoogleGenAI({ apiKey });
+  return genAI;
+}
+
 export const askHistoAI = createServerFn({ method: "POST" })
   .validator((data: { message: string; history?: ChatMessage[] }) => data)
   .handler(async ({ data }) => {
@@ -86,89 +101,48 @@ export const askHistoAI = createServerFn({ method: "POST" })
       };
     }
 
-    const apiKey = process.env.KIE_AI_API_KEY;
-    if (!apiKey) {
-      throw new Error(
-        "KIE_AI_API_KEY is not set. Add it in your Vercel project's Environment Variables.",
-      );
-    }
+    const ai = getClient();
 
-    // Kie AI puts the model name in the URL path itself, not in the body
-    const model = "gemini-2.5-flash";
-
-// ==========================
-// CLASSIFIER
-// ==========================
-
-const classifierResponse = await fetch(
-  `https://api.kie.ai/${model}/v1/chat/completions`,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      messages: [
-        {
-          role: "system",
-          content: CLASSIFIER_PROMPT,
-        },
-        {
-          role: "user",
-          content: data.message,
-        },
-      ],
-      temperature: 0.2,
-      stream: false,
-    }),
-  }
-);
-
-if (!classifierResponse.ok) {
-  throw new Error("Classifier failed.");
-}
-
-const classifierJson = await classifierResponse.json();
-
-const intent =
-  classifierJson.choices?.[0]?.message?.content
-    ?.trim()
-    ?.toUpperCase();
-
-if (intent !== "RELATED") {
-  return {
-    text: "Maaf, saya hanya dapat membantu mengenai materi Kehidupan Praaksara Indonesia dan Sejarah Indonesia Kelas X di HistoAR.",
-  };
-}
-
-    const response = await fetch(`https://api.kie.ai/${model}/v1/chat/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+    // ==========================
+    // CLASSIFIER
+    // ==========================
+    const classifierResponse = await ai.models.generateContent({
+      model: MODEL,
+      contents: data.message,
+      config: {
+        systemInstruction: CLASSIFIER_PROMPT,
+        temperature: 0.2,
       },
-      body: JSON.stringify({
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...(data.history ?? []).slice(-MAX_HISTORY_MESSAGES),
-          { role: "user", content: data.message },
-        ],
-        stream: false,
-      }),
     });
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error("Kie AI error:", response.status, errText);
+    const intent = classifierResponse.text?.trim()?.toUpperCase();
+
+    if (intent !== "RELATED") {
+      return {
+        text: "Maaf, saya hanya dapat membantu mengenai materi Kehidupan Praaksara Indonesia dan Sejarah Indonesia Kelas X di HistoAR.",
+      };
+    }
+
+    // Gemini pakai role "model" untuk balasan asisten, bukan "assistant".
+    const history = (data.history ?? []).slice(-MAX_HISTORY_MESSAGES).map((m) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    }));
+
+    const response = await ai.models.generateContent({
+      model: MODEL,
+      contents: [...history, { role: "user", parts: [{ text: data.message }] }],
+      config: {
+        systemInstruction: SYSTEM_PROMPT,
+      },
+    });
+
+    const text = response.text;
+
+    if (!text) {
+      console.error("Gemini kosong:", JSON.stringify(response));
       throw new Error("HistoAI is having trouble responding right now.");
     }
 
-    const json = (await response.json()) as {
-      choices: Array<{ message: { content: string } }>;
-    };
-
-    const text = json.choices?.[0]?.message?.content;
-
-    return { text: text || "Sorry, I couldn't come up with an answer for that." };
+    return { text };
   });
