@@ -686,63 +686,6 @@
         "jawaban": 2
       }
     ],
-    "m3-4": [
-      {
-        "id": "m3-4q1",
-        "pertanyaan": "Di antara tiga jenis manusia purba, yang memiliki volume otak PALING BESAR adalah...",
-        "opsi": [
-          "Meganthropus Paleojavanicus",
-          "Pithecanthropus Erectus",
-          "Homo Sapiens",
-          "Ketiganya sama besar"
-        ],
-        "jawaban": 2
-      },
-      {
-        "id": "m3-4q2",
-        "pertanyaan": "Pithecanthropus Erectus ditemukan oleh Eugène Dubois pada tahun 1891 di...",
-        "opsi": [
-          "Sangiran, Jawa Tengah",
-          "Trinil, tepi Bengawan Solo, Ngawi",
-          "Wajak, Tulungagung",
-          "Mojokerto"
-        ],
-        "jawaban": 1
-      },
-      {
-        "id": "m3-4q3",
-        "pertanyaan": "Meganthropus Paleojavanicus dianggap sebagai manusia purba TERTUA di Indonesia karena fosilnya ditemukan...",
-        "opsi": [
-          "Bersamaan dengan alat logam",
-          "Di lapisan tanah termuda Sangiran",
-          "Rahang bawah dan geraham besar oleh von Koenigswald di Sangiran",
-          "Di dasar laut"
-        ],
-        "jawaban": 2
-      },
-      {
-        "id": "m3-4q4",
-        "pertanyaan": "Homo wajakensis dan Homo soloensis adalah temuan penting jenis...",
-        "opsi": [
-          "Meganthropus Paleojavanicus",
-          "Pithecanthropus Erectus",
-          "Homo Sapiens",
-          "Homo floresiensis"
-        ],
-        "jawaban": 2
-      },
-      {
-        "id": "m3-4q5",
-        "pertanyaan": "Pithecanthropus mojokertensis dan Pithecanthropus soloensis adalah varian dari...",
-        "opsi": [
-          "Meganthropus Paleojavanicus",
-          "Pithecanthropus Erectus (Homo erectus)",
-          "Homo Sapiens",
-          "Homo floresiensis"
-        ],
-        "jawaban": 1
-      }
-    ],
     "m3-0": [
       {
         "id": "m3-0q1",

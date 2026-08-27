@@ -166,7 +166,7 @@
       "kode": "3.4.2 / Situs Bali",
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik Bali: Gilimanuk",
-      "ringkasan": "Situs Gilimanuk di Bali menyimpan ratusan kubur batu dan sarkofagus, penanda peralihan antara Neolitikum akhir dan Perundagian awal.",
+      "ringkasan": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal.",
       "konten": [
         {
           "judul": "Gilimanuk (Bali)",
@@ -180,7 +180,7 @@
       "kode": "3.4.3 / Situs Toraja",
       "layerColor": "#7a5c3e",
       "judul": "Situs Megalitik Toraja",
-      "ringkasan": "Tradisi megalitik Toraja, salah satu yang paling terkenal di dunia — batu Simbuang, makam tebing Londa dan Kete Kesu, serta tau-tau.",
+      "ringkasan": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang.",
       "konten": [
         {
           "judul": "Toraja",
@@ -353,28 +353,6 @@
         {
           "judul": "Kebudayaan",
           "isi": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
-        }
-      ]
-    },
-    {
-      "id": "m3-4",
-      "urutan": 15,
-      "kode": "4.4 / Tabel Perbandingan",
-      "layerColor": "#7a5c3e",
-      "judul": "Tabel Rangkuman Tiga Jenis Manusia Purba",
-      "ringkasan": "Perbandingan Meganthropus paleojavanicus, Pithecanthropus erectus, dan Homo Sapiens (Wajakensis).",
-      "konten": [
-        {
-          "judul": "Meganthropus Paleojavanicus",
-          "isi": "Jenis manusia purba tertua yang jejaknya ditemukan di Indonesia. Namanya berarti manusia besar dari Jawa (mega = besar, anthropus = manusia, paleo = tua, javanicus = dari Jawa). Fosilnya berupa rahang bawah dan geraham berukuran sangat besar, ditemukan oleh von Koenigswald antara 1936 sampai 1941 di Sangiran, Jawa Tengah. Tubuhnya diperkirakan tegap dan berotot dengan tinggi sekitar 1,75 meter. Makanannya berupa tumbuhan berserat, umbi, dan buah liar. Belum ditemukan bukti kuat bahwa ia membuat alat yang rumit."
-        },
-        {
-          "judul": "Pithecanthropus Erectus (Homo erectus)",
-          "isi": "Manusia kera yang berjalan tegak. Ditemukan Eugène Dubois tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Volume otaknya sekitar 900 cc, kurang dari dua pertiga otak manusia modern. Tulang alisnya menonjol dan dahinya miring ke belakang. Ia dianggap pembuat Kebudayaan Pacitan dengan alat batu kasar seperti kapak genggam dan kapak perimbas. Variannya di Indonesia antara lain Pithecanthropus mojokertensis dari Mojokerto dan Pithecanthropus soloensis dari Ngandong."
-        },
-        {
-          "judul": "Homo Sapiens",
-          "isi": "Manusia yang bijak, jenis yang wajahnya paling mirip manusia modern, muncul sekitar 40.000 sampai 60.000 tahun lalu. Temuan pentingnya di Indonesia antara lain Homo wajakensis dari Tulungagung dan Homo soloensis dari Ngandong. Volume otaknya 1.300 sampai 1.450 cc. Kebudayaannya paling beragam: melukis di dinding gua, membuat alat batu dan tulang yang halus, bercocok tanam, melebur logam, sampai berlayar antarpulau."
         }
       ]
     }

@@ -67,7 +67,7 @@
         "key": "paleolitikum",
         "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
         "targetIndex": 0,
-        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb?v=2",
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb?v=5",
         "defaultView": {
           "rotY": 0,
           "zoom": 1.5,
@@ -143,11 +143,11 @@
             "id": "seni-komunikasi",
             "view": {
               "rotY": 30,
-              "zoom": 3.0,
+              "zoom": 3,
               "focus": [
                 0.0248,
                 -0.0121,
-                0.1020
+                0.102
               ]
             },
             "label": "Seni dan Komunikasi",
@@ -181,7 +181,7 @@
         "key": "mesolitikum",
         "label": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut (Mesolitikum)",
         "targetIndex": 0,
-        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb?v=2",
         "defaultView": {
           "rotY": 0,
           "zoom": 1.2,
@@ -196,7 +196,7 @@
           {
             "id": "tempat-tinggal",
             "label": "Tempat Tinggal",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0002.mp3",
             "teks": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara.",
             "view": {
@@ -212,7 +212,7 @@
           {
             "id": "bercocok-tanam",
             "label": "Awal Bercocok Tanam",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0003.mp3",
             "teks": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan.",
             "view": {
@@ -228,7 +228,7 @@
           {
             "id": "alat",
             "label": "Alat yang Dipakai",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0004.mp3",
             "teks": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi.",
             "view": {
@@ -244,7 +244,7 @@
           {
             "id": "seni-lukis",
             "label": "Seni Lukis Berkembang Pesat",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/mesolitikum.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/mesolitikum/0005.mp3",
             "teks": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya menggores dinding gua dengan alat tajam dan menggunakan cat berwarna merah, hitam, dan putih dari bahan alami. Motifnya antara lain cap tangan, gambar hewan buruan dengan busur panah, serta berbagai hewan target buruan. Lukisan-lukisan ini bukan sekadar hiasan. Mereka percaya lukisan itu bisa membantu mempermudah perburuan. Dari pola-pola lukisan, para ahli menyimpulkan bahwa manusia Mesolitikum sudah punya sistem kepercayaan awal: percaya ada kekuatan besar yang memengaruhi kehidupan mereka. Unsur spiritual mulai lahir di sini.",
             "view": {
@@ -358,7 +358,7 @@
         "key": "perundagian",
         "label": "Masa Perundagian (Zaman Logam)",
         "targetIndex": 0,
-        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+        "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
         "defaultView": {
           "rotY": 0,
           "zoom": 1.4,
@@ -382,7 +382,7 @@
               ]
             },
             "label": "Menetap dan Pembagian Kerja",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/menetap-dan-pembagian-kerja.mp3",
             "teks": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
           },
@@ -398,7 +398,7 @@
               ]
             },
             "label": "Kegiatan Sehari-hari",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kegiatan-sehari-hari.mp3",
             "teks": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
           },
@@ -414,7 +414,7 @@
               ]
             },
             "label": "Teknologi Logam",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/teknologi-logam.mp3",
             "teks": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
           },
@@ -430,7 +430,7 @@
               ]
             },
             "label": "Kemampuan Berlayar",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/kemampuan-berlayar.mp3",
             "teks": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
           },
@@ -446,7 +446,7 @@
               ]
             },
             "label": "Seni dan Sistem Kepercayaan",
-            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb",
+            "model": "/assets/models/empat-masa-kehidupan-manusia-praaksara/zaman_logam.glb?v=2",
             "audio": "/assets/audio/empat-masa-kehidupan-manusia-praaksara/zaman_logam/seni-dan-sistem-kepercayaan.mp3",
             "teks": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
           }
@@ -473,7 +473,7 @@
             "label": "Menhir",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/menhir.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/menhir.mp3",
-            "teks": "Fungsi: penghormatan pada arwah. Deskripsi singkat: batu tegak seperti tugu, biasanya...",
+            "teks": "Menhir adalah batu tunggal yang didirikan tegak seperti tugu di tempat terbuka atau di depan rumah adat. Batu ini berfungsi sebagai sarana penghormatan kepada arwah leluhur, sekaligus penanda status sosial keluarga yang mendirikannya.",
             "view": {
               "zoom": 0.85
             }
@@ -483,7 +483,7 @@
             "label": "Dolmen",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/dolmen.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/dolmen.mp3",
-            "teks": "Fungsi: meja sesajen atau altar upacara. Deskripsi singkat: batu datar besar disangga beberapa...",
+            "teks": "Dolmen adalah meja batu besar dan datar yang disangga oleh beberapa batu tegak di bawahnya, mirip bentuk meja raksasa. Dolmen berfungsi sebagai altar tempat meletakkan sesaji dalam upacara pemujaan arwah leluhur.",
             "view": {
               "zoom": 0.85
             }
@@ -493,7 +493,7 @@
             "label": "Sarkofagus",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/sarkofagus.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/sarkofagus.mp3",
-            "teks": "Fungsi: peti mati dari batu utuh. Deskripsi singkat: wadah jenazah yang dipahat dari...",
+            "teks": "Sarkofagus adalah peti jenazah yang dipahat utuh dari satu batu besar, lengkap dengan tutupnya sehingga menyerupai lesung raksasa. Sarkofagus berfungsi sebagai wadah untuk menguburkan jenazah bersama bekal kuburnya.",
             "view": {
               "zoom": 0.85
             }
@@ -503,7 +503,7 @@
             "label": "Kubur Berundak",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/kubur-berundak.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/kubur-berundak.mp3",
-            "teks": "Fungsi: makam berjenjang. Deskripsi singkat: susunan batu bertingkat yang...",
+            "teks": "Kubur berundak adalah makam yang disusun bertingkat-tingkat mengikuti kontur lereng bukit, mirip anak tangga batu. Bentuk berjenjang ini berfungsi sebagai makam kolektif atau makam tokoh yang dihormati masyarakatnya.",
             "view": {
               "zoom": 0.85
             }
@@ -513,7 +513,7 @@
             "label": "Peti Kubur Batu",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/peti-kubur-batu.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/peti-kubur-batu.mp3",
-            "teks": "Fungsi: wadah jenazah. Deskripsi singkat: kotak batu tersusun dari...",
+            "teks": "Peti kubur batu adalah wadah jenazah yang dirakit dari beberapa lempengan batu pipih yang disusun menjadi kotak. Bentuknya lebih sederhana daripada sarkofagus, tetapi tetap berfungsi sebagai peti untuk menguburkan jenazah.",
             "view": {
               "zoom": 0.85
             }
@@ -523,7 +523,7 @@
             "label": "Punden Berundak",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/punden-berundak.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/punden-berundak.mp3",
-            "teks": "Fungsi: tempat pemujaan. Deskripsi singkat: bangunan bertingkat mirip...",
+            "teks": "Punden berundak adalah bangunan bertingkat yang undakannya makin mengecil ke arah puncak, menjadi cikal bakal pola dasar candi di masa berikutnya. Bangunan ini berfungsi sebagai tempat pemujaan arwah leluhur dan roh alam.",
             "view": {
               "zoom": 0.85
             }
@@ -533,7 +533,7 @@
             "label": "Waruga",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/waruga.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/waruga.mp3",
-            "teks": "Fungsi: kubur batu berbentuk kubus. Deskripsi singkat: batu berbentuk kubus dengan...",
+            "teks": "Waruga adalah kubur batu berbentuk kubus dengan tutup menyerupai atap segitiga di atasnya, khas tradisi masyarakat Minahasa. Waruga berfungsi sebagai wadah jenazah, yang biasanya dikuburkan dalam posisi jongkok menghadap arah tertentu.",
             "view": {
               "zoom": 0.85
             }
@@ -543,7 +543,7 @@
             "label": "Arca / Patung Batu",
             "model": "/assets/models/situs-megalitik/bentuk-peninggalan/arca-patung.glb",
             "audio": "/assets/audio/situs-megalitik/bentuk-peninggalan/arca-patung.mp3",
-            "teks": "Fungsi: perwujudan leluhur. Deskripsi singkat: patung leluhur atau hewan.",
+            "teks": "Arca atau patung batu adalah pahatan berbentuk manusia atau hewan yang dianggap sebagai perwujudan leluhur. Patung ini berfungsi sebagai objek pemujaan sekaligus pelindung bagi masyarakat yang mendirikannya.",
             "view": {
               "zoom": 0.85
             }
@@ -605,19 +605,7 @@
           "zoom": 0.85
         },
         "introAudio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/intro.mp3",
-        "hotspots": [
-          {
-            "id": "gilimanuk",
-            "view": {
-              "rotY": 0,
-              "zoom": 1.02
-            },
-            "label": "Gilimanuk (Bali)",
-            "model": "/assets/models/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.glb",
-            "audio": "/assets/audio/situs-megalitik/bali-dan-nusa-tenggara/gilimanuk.mp3",
-            "teks": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal."
-          }
-        ]
+        "hotspots": []
       }
     ],
     "maxZoom": 4
@@ -780,18 +768,7 @@
           "zoom": 0.85
         },
         "introAudio": "/assets/audio/situs-megalitik/toraja/intro.mp3",
-        "hotspots": [
-          {
-            "id": "toraja",
-            "view": {
-              "zoom": 0.85
-            },
-            "label": "Toraja",
-            "model": "/assets/models/situs-megalitik/toraja/toraja.glb",
-            "audio": "/assets/audio/situs-megalitik/toraja/toraja.mp3",
-            "teks": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang."
-          }
-        ]
+        "hotspots": []
       }
     ],
     "maxZoom": 4
@@ -939,17 +916,6 @@
             "teks": "Penggalian arkeologi masa kini tidak lagi hanya mengandalkan cangkul dan kuas. Pemindaian 3D, fotogrametri, dan pemetaan GIS dipakai untuk mendokumentasikan posisi persis setiap fosil sebelum diangkat, sehingga informasi lapisan dan konteks temuannya tidak hilang meski fosilnya sudah dipindahkan ke museum.",
             "view": {
               "zoom": 0.85
-            }
-          },
-          {
-            "id": "ekskavasi-digital-pov-kamera",
-            "label": "Sudut Pandang Kamera",
-            "model": "/assets/models/ragam-temuan-manusia-purba/ekskavasi-digital.glb",
-            "teks": "Begini kira-kira bidikan yang direkam kamera dokumentasi yang berdiri di tepi galian: fosil didekatkan dan dipusatkan di tengah layar, persis seperti arkeolog memotret temuan sebelum diangkat dari lapisan tanahnya.",
-            "view": {
-              "zoom": 3.6,
-              "rotY": -54,
-              "focus": [-0.095, 0.056, 0.059]
             }
           },
           {
