@@ -2,7 +2,7 @@
 // Kirim env var GEMINI_API_KEY di deployment (Vercel/dst) supaya jalan.
 
 import { createFileRoute } from "@tanstack/react-router";
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
@@ -11,6 +11,14 @@ const MODEL = "gemini-3.6-flash";
 
 function cariMateri(id: string) {
   return (materiData as MateriData).materi.find((m) => m.id === id);
+}
+
+// PENTING: pakai `konten` (isi bab lengkap), bukan cuma `ringkasan`
+// (1-2 kalimat teaser) — kalau cuma ringkasan, HistoAI ngaku "belum
+// dibahas" untuk hal yang sebenarnya ada di materi.
+function konteksLengkap(materi: NonNullable<ReturnType<typeof cariMateri>>) {
+  const bagian = materi.konten.map((k) => `### ${k.judul}\n${k.isi}`).join("\n\n");
+  return `${materi.ringkasan}\n\n${bagian}`;
 }
 
 function buatPrompt(judul: string, konteks: string, pertanyaan: string) {
@@ -83,12 +91,13 @@ export const Route = createFileRoute("/api/chat")({
             );
           }
 
-          const prompt = buatPrompt(materi.judul, materi.ringkasan, pertanyaan);
+          const prompt = buatPrompt(materi.judul, konteksLengkap(materi), pertanyaan);
           const ai = new GoogleGenAI({ apiKey });
 
           const response = await ai.models.generateContent({
             model: MODEL,
             contents: prompt,
+            config: { thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL } },
           });
 
           const reply = response.text ?? "Maaf, tidak ada balasan dari AI.";
