@@ -39,9 +39,13 @@ export function AIGuide() {
       setMessages((m) => [...m, { role: "ai", text: reply }]);
     } catch (err) {
       console.error(err);
+      // DEBUG SEMENTARA: nampilin detail error asli di chat biar kelihatan
+      // tanpa perlu buka Vercel dashboard. Hapus lagi kalau udah ketemu akar
+      // masalahnya.
+      const detail = err instanceof Error ? err.message : String(err);
       setMessages((m) => [
         ...m,
-        { role: "ai", text: "Maaf, ada gangguan saat menjawab. Coba lagi sebentar lagi." },
+        { role: "ai", text: `Maaf, ada gangguan saat menjawab. [DEBUG] ${detail}` },
       ]);
     } finally {
       setLoading(false);
