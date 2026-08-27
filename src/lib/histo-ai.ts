@@ -1,6 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
@@ -56,19 +55,11 @@ jangan menambahkan fakta, nama, angka, atau tanggal yang tidak tertulis di mater
 // membengkakkan token (biaya) atau menyelundupkan instruksi panjang.
 const MAX_HISTORY_MESSAGES = 10;
 
-const MODEL = "gemini-3.6-flash";
-
-let genAI: GoogleGenAI | null = null;
-function getClient(): GoogleGenAI {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error(
-      "GEMINI_API_KEY is not set. Add it in your Vercel project's Environment Variables.",
-    );
-  }
-  if (!genAI) genAI = new GoogleGenAI({ apiKey });
-  return genAI;
-}
+// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung —
+// Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
+// nyetop model itu untuk API key baru. Nama model taruh di URL path.
+const MODEL = "gemini-2.5-flash";
+const API_URL = `https://api.kie.ai/${MODEL}/v1/chat/completions`;
 
 export const askHistoAI = createServerFn({ method: "POST" })
   .validator((data: { message: string; history?: ChatMessage[] }) => data)
@@ -84,36 +75,43 @@ export const askHistoAI = createServerFn({ method: "POST" })
       };
     }
 
-    const ai = getClient();
-
-    // Gemini pakai role "model" untuk balasan asisten, bukan "assistant".
-    const history = (data.history ?? []).slice(-MAX_HISTORY_MESSAGES).map((m) => ({
-      role: m.role === "assistant" ? "model" : "user",
-      parts: [{ text: m.content }],
-    }));
+    const apiKey = process.env.KIE_AI_API_KEY;
+    if (!apiKey) {
+      throw new Error(
+        "KIE_AI_API_KEY is not set. Add it in your Vercel project's Environment Variables.",
+      );
+    }
 
     // Satu panggilan aja: aturan #3 di SYSTEM_PROMPT udah nangani penolakan
-    // pertanyaan di luar topik, jadi gak perlu classifier terpisah (dulu
-    // 2 panggilan berurutan, bikin lambat 2x lipat tanpa manfaat nyata).
-    // thinkingLevel MINIMAL: kurangin "mikir panjang" — ini QA sederhana
-    // yang grounded ke materi, bukan reasoning task. (thinkingBudget: 0
-    // ditolak gemini-3.6-flash dengan INVALID_ARGUMENT, jadi pakai
-    // thinkingLevel, bukan thinkingBudget.)
-    const response = await ai.models.generateContent({
-      model: MODEL,
-      contents: [...history, { role: "user", parts: [{ text: data.message }] }],
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+    // pertanyaan di luar topik, jadi gak perlu classifier terpisah (versi
+    // lama manggil 2x berurutan, bikin lambat 2x lipat tanpa manfaat nyata).
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...(data.history ?? []).slice(-MAX_HISTORY_MESSAGES),
+          { role: "user", content: data.message },
+        ],
+        stream: false,
+      }),
     });
 
-    const text = response.text;
-
-    if (!text) {
-      console.error("Gemini kosong:", JSON.stringify(response));
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error("Kie AI error:", response.status, errText);
       throw new Error("HistoAI is having trouble responding right now.");
     }
 
-    return { text };
+    const json = (await response.json()) as {
+      choices: Array<{ message: { content: string } }>;
+    };
+
+    const text = json.choices?.[0]?.message?.content;
+
+    return { text: text || "Maaf, aku belum bisa menjawab itu sekarang." };
   });

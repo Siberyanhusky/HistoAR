@@ -1,13 +1,16 @@
 // Port dari api/chat.js jadi TanStack Start server route.
-// Kirim env var GEMINI_API_KEY di deployment (Vercel/dst) supaya jalan.
+// Kirim env var KIE_AI_API_KEY di deployment (Vercel/dst) supaya jalan.
 
 import { createFileRoute } from "@tanstack/react-router";
-import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
-const MODEL = "gemini-3.6-flash";
+// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung —
+// Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
+// nyetop model itu untuk API key baru. Nama model taruh di URL path.
+const MODEL = "gemini-2.5-flash";
+const API_URL = `https://api.kie.ai/${MODEL}/v1/chat/completions`;
 
 function cariMateri(id: string) {
   return (materiData as MateriData).materi.find((m) => m.id === id);
@@ -83,24 +86,34 @@ export const Route = createFileRoute("/api/chat")({
             return Response.json({ error: "Materi tidak ditemukan" }, { status: 400 });
           }
 
-          const apiKey = process.env.GEMINI_API_KEY;
+          const apiKey = process.env.KIE_AI_API_KEY;
           if (!apiKey) {
             return Response.json(
-              { error: "GEMINI_API_KEY belum diset di environment variables." },
+              { error: "KIE_AI_API_KEY belum diset di environment variables." },
               { status: 500 },
             );
           }
 
           const prompt = buatPrompt(materi.judul, konteksLengkap(materi), pertanyaan);
-          const ai = new GoogleGenAI({ apiKey });
 
-          const response = await ai.models.generateContent({
-            model: MODEL,
-            contents: prompt,
-            config: { thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL } },
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${apiKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              messages: [{ role: "user", content: [{ type: "text", text: prompt }] }],
+            }),
           });
 
-          const reply = response.text ?? "Maaf, tidak ada balasan dari AI.";
+          const json = await response.json();
+
+          if (!response.ok) {
+            return Response.json(json, { status: response.status });
+          }
+
+          const reply = json.choices?.[0]?.message?.content ?? "Maaf, tidak ada balasan dari AI.";
 
           return Response.json({ reply });
         } catch (err) {
