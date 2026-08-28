@@ -6,6 +6,16 @@ import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  // Vite default-nya nge-bundle JS/CSS ke folder "assets" - PERSIS nama
+  // folder public/assets/ (tempat model/marker/audio mentah kita). Dua-duanya
+  // ketemu di URL prefix yang sama ("/assets/...") di build output, dan
+  // aturan cache immutable-1-tahun yang ditujukan buat bundle Vite (nama file
+  // ada hash-nya, aman) ikut nyantol ke file mentah kita (nama filenya TETAP,
+  // jadi TIDAK aman di-cache selamanya - lihat komentar routeRules di bawah).
+  // Pindahin output bundle Vite ke folder lain ("_app") biar dua-duanya gak
+  // pernah tabrakan URL prefix - jadi override cache-control routeRules di
+  // bawah beneran kepakai, gak keburu ketiban aturan immutable punya bundle.
+  build: { assetsDir: "_app" },
   plugins: [
     tsConfigPaths(),
     tailwindcss(),
