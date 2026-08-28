@@ -33,6 +33,21 @@ export default defineConfig({
             "X-Frame-Options": "SAMEORIGIN",
           },
         },
+        // Default preset "vercel" nge-cache SEMUA isi /assets/ immutable
+        // selama 1 tahun - pas buat bundle JS/CSS Vite (nama filenya
+        // mengandung hash konten, jadi otomatis berubah tiap kali isinya
+        // beda). TAPI model .glb, marker .mind, dan audio .mp3 di
+        // public/assets/{models,ar,audio}/ TIDAK punya hash di nama file -
+        // begitu di-redeploy dengan isi baru tapi nama sama, browser/CDN
+        // siswa yang udah pernah buka halaman itu bisa nolak fetch ulang
+        // sampai SETAHUN (ini yang bikin marker/model yang baru di-fix
+        // kelihatan "belum berubah" walau deploy-nya udah sukses). Override
+        // tiga subfolder ini ke cache pendek (5 menit) supaya perbaikan
+        // beneran nyampe ke HP siswa dalam waktu wajar, tanpa kehilangan
+        // manfaat cache immutable buat bundle JS/CSS yang memang aman.
+        "/assets/models/**": { headers: { "cache-control": "public, max-age=300, must-revalidate" } },
+        "/assets/ar/**": { headers: { "cache-control": "public, max-age=300, must-revalidate" } },
+        "/assets/audio/**": { headers: { "cache-control": "public, max-age=300, must-revalidate" } },
       },
     }),
     viteReact(),
