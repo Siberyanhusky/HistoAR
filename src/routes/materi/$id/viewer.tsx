@@ -4,24 +4,24 @@ import materiData from "@/data/materi.json";
 import arData from "@/data/ar.json";
 import type { ArData, MateriData } from "@/lib/histoar-types";
 import { isMateriUnlocked } from "@/lib/progress";
-import { ArScan } from "@/components/histoar/ArScan";
+import { Viewer3D } from "@/components/histoar/Viewer3D";
 
 const { materi: materiList } = materiData as MateriData;
 const arConfigAll = arData as unknown as ArData;
 
-export const Route = createFileRoute("/materi/$id")({
+export const Route = createFileRoute("/materi/$id/viewer")({
   loader: ({ params }) => {
     const materi = materiList.find((m) => m.id === params.id);
     if (!materi) throw notFound();
     return { materi, arConfig: arConfigAll[params.id] };
   },
   head: ({ loaderData }) => ({
-    meta: [{ title: `Scan AR · ${loaderData?.materi.judul ?? ""} · HistoAR` }],
+    meta: [{ title: `Mode 3D · ${loaderData?.materi.judul ?? ""} · HistoAR` }],
   }),
-  component: MateriArPage,
+  component: MateriViewerPage,
 });
 
-function MateriArPage() {
+function MateriViewerPage() {
   const { materi, arConfig } = Route.useLoaderData();
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
 
@@ -45,7 +45,7 @@ function MateriArPage() {
     return <BlockedState message="Belum ada konfigurasi AR untuk materi ini." />;
   }
 
-  return <ArScan materiId={materi.id} materiJudul={materi.judul} arConfig={arConfig} onAllExplored={() => {}} />;
+  return <Viewer3D materiId={materi.id} materiJudul={materi.judul} arConfig={arConfig} onAllExplored={() => {}} />;
 }
 
 function BlockedState({ message }: { message: string }) {

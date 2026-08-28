@@ -210,6 +210,18 @@ html {
   background: #000;
 }
 
+/* Viewer3D (mode "Jelajahi 3D", tanpa kamera) di layar lebar: transparan
+   supaya motif lukisan gua di belakangnya (FieldTexture/CaveArtMotif) ikut
+   kelihatan di sekitar model, bukan kotak hitam solid seperti letterbox
+   kamera AR. Spesifisitas dua-class (.ar-scene-root.viewer3d-desktop) sengaja
+   dipakai supaya menang lawan aturan hitam di atas tanpa !important. Cuma
+   nyala di >=1024px - di HP tetap hitam solid seperti kamera AR. */
+@media (min-width: 1024px) {
+  .ar-scene-root.viewer3d-desktop {
+    background: transparent;
+  }
+}
+
 /* A-Frame nyuntik tombol "Enter VR"/"Enter AR" (kanan-bawah) langsung ke <body>.
    Nama komponen yang benar di A-Frame 1.5.0 adalah xr-mode-ui (sudah dipakai di
    ar-engine.ts); aturan di bawah cuma jaring pengaman biar tombol VR TIDAK

@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MateriIndexRouteImport } from './routes/materi/index'
 import { Route as QuizIdRouteImport } from './routes/quiz/$id'
-import { Route as MateriIdRouteImport } from './routes/materi/$id'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as MateriIdIndexRouteImport } from './routes/materi/$id/index'
+import { Route as MateriIdViewerRouteImport } from './routes/materi/$id/viewer'
+import { Route as MateriIdArRouteImport } from './routes/materi/$id/ar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,53 +32,93 @@ const QuizIdRoute = QuizIdRouteImport.update({
   path: '/quiz/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MateriIdRoute = MateriIdRouteImport.update({
-  id: '/materi/$id',
-  path: '/materi/$id',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriIdIndexRoute = MateriIdIndexRouteImport.update({
+  id: '/materi/$id/',
+  path: '/materi/$id/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriIdViewerRoute = MateriIdViewerRouteImport.update({
+  id: '/materi/$id/viewer',
+  path: '/materi/$id/viewer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriIdArRoute = MateriIdArRouteImport.update({
+  id: '/materi/$id/ar',
+  path: '/materi/$id/ar',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
-  '/materi/$id': typeof MateriIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/materi/': typeof MateriIndexRoute
+  '/materi/$id/ar': typeof MateriIdArRoute
+  '/materi/$id/viewer': typeof MateriIdViewerRoute
+  '/materi/$id/': typeof MateriIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
-  '/materi/$id': typeof MateriIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/materi': typeof MateriIndexRoute
+  '/materi/$id/ar': typeof MateriIdArRoute
+  '/materi/$id/viewer': typeof MateriIdViewerRoute
+  '/materi/$id': typeof MateriIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
-  '/materi/$id': typeof MateriIdRoute
   '/quiz/$id': typeof QuizIdRoute
   '/materi/': typeof MateriIndexRoute
+  '/materi/$id/ar': typeof MateriIdArRoute
+  '/materi/$id/viewer': typeof MateriIdViewerRoute
+  '/materi/$id/': typeof MateriIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat' | '/materi/$id' | '/quiz/$id' | '/materi/'
+  fullPaths:
+    | '/'
+    | '/api/chat'
+    | '/quiz/$id'
+    | '/materi/'
+    | '/materi/$id/ar'
+    | '/materi/$id/viewer'
+    | '/materi/$id/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/chat' | '/materi/$id' | '/quiz/$id' | '/materi'
-  id: '__root__' | '/' | '/api/chat' | '/materi/$id' | '/quiz/$id' | '/materi/'
+  to:
+    | '/'
+    | '/api/chat'
+    | '/quiz/$id'
+    | '/materi'
+    | '/materi/$id/ar'
+    | '/materi/$id/viewer'
+    | '/materi/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/chat'
+    | '/quiz/$id'
+    | '/materi/'
+    | '/materi/$id/ar'
+    | '/materi/$id/viewer'
+    | '/materi/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiChatRoute: typeof ApiChatRoute
-  MateriIdRoute: typeof MateriIdRoute
   QuizIdRoute: typeof QuizIdRoute
   MateriIndexRoute: typeof MateriIndexRoute
+  MateriIdArRoute: typeof MateriIdArRoute
+  MateriIdViewerRoute: typeof MateriIdViewerRoute
+  MateriIdIndexRoute: typeof MateriIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,18 +144,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/materi/$id': {
-      id: '/materi/$id'
-      path: '/materi/$id'
-      fullPath: '/materi/$id'
-      preLoaderRoute: typeof MateriIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
       fullPath: '/api/chat'
       preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materi/$id/': {
+      id: '/materi/$id/'
+      path: '/materi/$id'
+      fullPath: '/materi/$id/'
+      preLoaderRoute: typeof MateriIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materi/$id/viewer': {
+      id: '/materi/$id/viewer'
+      path: '/materi/$id/viewer'
+      fullPath: '/materi/$id/viewer'
+      preLoaderRoute: typeof MateriIdViewerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materi/$id/ar': {
+      id: '/materi/$id/ar'
+      path: '/materi/$id/ar'
+      fullPath: '/materi/$id/ar'
+      preLoaderRoute: typeof MateriIdArRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -122,9 +178,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiChatRoute: ApiChatRoute,
-  MateriIdRoute: MateriIdRoute,
   QuizIdRoute: QuizIdRoute,
   MateriIndexRoute: MateriIndexRoute,
+  MateriIdArRoute: MateriIdArRoute,
+  MateriIdViewerRoute: MateriIdViewerRoute,
+  MateriIdIndexRoute: MateriIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

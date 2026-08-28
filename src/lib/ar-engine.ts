@@ -225,11 +225,22 @@ export interface ArEngineCallbacks {
   onGateUpdate: (done: number, total: number, ready: boolean) => void;
   onQuizReady: () => void;
   onModelError?: (targetKey: string, src: string, detail: unknown) => void;
+  // Dipanggil tiap kali status play/pause audio narasi berubah - dipakai buat
+  // tombol "Narasi" di layout desktop viewer3D (mobile gak punya tombol ini,
+  // audio langsung autoplay saat hotspot dipilih).
+  onNarrationChange?: (playing: boolean, hasAudio: boolean) => void;
 }
+
+// "camera" = mode AR biasa (MindAR + video kamera, marker fisik).
+// "viewer3d" = fallback tanpa kamera buat HP yang kameranya bermasalah: model
+// langsung ditampilkan (tidak nunggu marker ke-scan), muter/zoom/pan lewat
+// drag & tombol persis kayak AR, cuma tanpa mindar-image sama sekali.
+export type ArEngineMode = "camera" | "viewer3d";
 
 export class ArEngine {
   private config: ArMateriConfig;
   private callbacks: ArEngineCallbacks;
+  private mode: ArEngineMode;
   private visited = new Set<string>();
   private currentAudio: HTMLAudioElement | null = null;
   private audioBusy = false;
@@ -279,10 +290,12 @@ export class ArEngine {
     this.lastY = e.clientY;
     this.rotY += dx * ROTATE_SPEED;
     // Default: drag vertikal tidak melakukan apa-apa (perilaku lama, tetap
-    // dipakai semua materi lain). Materi yang butuh lihat model dari atas
-    // (mis. m3-0 "Ragam Temuan" - Ekskavasi Digital) mengaktifkan
+    // dipakai semua materi lain di mode kamera). Materi yang butuh lihat model
+    // dari atas (mis. m3-0 "Ragam Temuan" - Ekskavasi Digital) mengaktifkan
     // `allowTiltDrag` di ar.json supaya drag atas-bawah ikut memutar sumbu X.
-    if (this.config.allowTiltDrag) {
+    // Mode viewer3d SELALU boleh tilt bebas - tidak ada kartu marker fisik
+    // yang membatasi orientasi "wajar"-nya, jadi orbit penuh yang diharapkan.
+    if (this.mode === "viewer3d" || this.config.allowTiltDrag) {
       const nextRotX = this.rotX - dy * ROTATE_SPEED;
       this.rotX = Math.min(TILT_DRAG_MAX, Math.max(-TILT_DRAG_MAX, nextRotX));
     } else {
@@ -294,14 +307,30 @@ export class ArEngine {
     this.dragging = false;
   };
 
-  constructor(config: ArMateriConfig, callbacks: ArEngineCallbacks) {
+  constructor(config: ArMateriConfig, callbacks: ArEngineCallbacks, mode: ArEngineMode = "camera") {
     this.config = config;
     this.callbacks = callbacks;
+    this.mode = mode;
     this.maxZoom = typeof config.maxZoom === "number" ? config.maxZoom : DEFAULT_MAX_ZOOM;
   }
 
   private q<T extends HTMLElement = HTMLElement>(id: string): T | null {
     return document.getElementById(id) as T | null;
+  }
+
+  // Sebagian elemen (judul/hotspot-list/deskripsi) tampil DUA KALI di DOM
+  // sekaligus - satu versi mobile (bottom-sheet, dicari lewat id lama biar
+  // CSS lama tetap jalan), satu versi desktop (sidebar kiri/kanan, muncul di
+  // viewport lebar lewat CSS, lihat Viewer3D.tsx). Keduanya ditandai atribut
+  // data-* yang sama, jadi satu kali tulis di sini otomatis nyampe ke
+  // dua-duanya tanpa engine perlu tahu ada berapa banyak yang sedang dirender.
+  private qAll<T extends HTMLElement = HTMLElement>(selector: string): T[] {
+    return Array.from(document.querySelectorAll<T>(selector));
+  }
+
+  private emitNarrationState() {
+    const audio = this.currentAudio;
+    this.callbacks.onNarrationChange?.(!!audio && !audio.paused, !!audio);
   }
 
   private totalHotspotCount() {
@@ -319,9 +348,15 @@ export class ArEngine {
       this.currentAudio.pause();
       this.currentAudio.currentTime = 0;
     }
-    if (!src) return;
+    if (!src) {
+      this.currentAudio = null;
+      this.emitNarrationState();
+      return;
+    }
     this.currentAudio = new Audio(src);
+    ["play", "pause", "ended"].forEach((ev) => this.currentAudio!.addEventListener(ev, () => this.emitNarrationState()));
     this.currentAudio.play().catch(() => {});
+    this.emitNarrationState();
   }
 
   private lockHotspots() {
@@ -344,13 +379,16 @@ export class ArEngine {
     if (this.audioTimeoutHandle) clearTimeout(this.audioTimeoutHandle);
 
     if (!src) {
+      this.currentAudio = null;
       this.unlockHotspots();
+      this.emitNarrationState();
       onEnded?.();
       return;
     }
 
     this.lockHotspots();
     this.currentAudio = new Audio(src);
+    ["play", "pause"].forEach((ev) => this.currentAudio!.addEventListener(ev, () => this.emitNarrationState()));
 
     let finished = false;
     const finish = () => {
@@ -358,6 +396,7 @@ export class ArEngine {
       finished = true;
       if (this.audioTimeoutHandle) clearTimeout(this.audioTimeoutHandle);
       this.unlockHotspots();
+      this.emitNarrationState();
       onEnded?.();
     };
 
@@ -365,7 +404,15 @@ export class ArEngine {
     this.currentAudio.addEventListener("error", finish, { once: true });
     this.audioTimeoutHandle = setTimeout(finish, AUDIO_LOCK_TIMEOUT_MS);
     this.currentAudio.play().catch(finish);
+    this.emitNarrationState();
   }
+
+  /** Viewer3D saja: play/pause manual narasi hotspot yang sedang aktif. */
+  toggleNarration = () => {
+    if (!this.currentAudio) return;
+    if (this.currentAudio.paused) this.currentAudio.play().catch(() => {});
+    else this.currentAudio.pause();
+  };
 
   private applyWrapperTransform(targetKey: string) {
     const sceneRoot = this.q("arSceneRoot");
@@ -502,49 +549,63 @@ export class ArEngine {
   }
 
   private setDescText(text: string) {
-    const desc = this.q("arPanelDesc");
-    const toggle = this.q<HTMLButtonElement>("arDescToggle");
-    if (!desc) return;
-    desc.textContent = text;
-    desc.classList.remove("is-expanded");
-    if (toggle) toggle.textContent = "Baca selengkapnya \u25be";
+    const descs = this.qAll("[data-panel-desc]");
+    if (!descs.length) return;
+    descs.forEach((desc) => {
+      desc.textContent = text;
+      desc.classList.remove("is-expanded");
+    });
+
+    // Toggle "baca selengkapnya" cuma konsep mobile (bottom-sheet sempit) -
+    // sidebar desktop discroll natural jadi gak render tombol ini sama
+    // sekali. Pasangkan tiap toggle ke desc di dalam wrapper [data-panel-body]
+    // yang sama, jangan asumsikan cuma ada satu di seluruh dokumen.
+    const toggles = this.qAll<HTMLButtonElement>("[data-desc-toggle]");
+    toggles.forEach((toggle) => (toggle.textContent = "Baca selengkapnya \u25be"));
 
     requestAnimationFrame(() => {
-      const isTruncated = desc.scrollHeight > desc.clientHeight + 2;
-      if (toggle) toggle.hidden = !isTruncated;
+      toggles.forEach((toggle) => {
+        const desc = toggle.closest("[data-panel-body]")?.querySelector<HTMLElement>("[data-panel-desc]");
+        const isTruncated = !!desc && desc.scrollHeight > desc.clientHeight + 2;
+        toggle.hidden = !isTruncated;
+      });
     });
   }
 
   private openPanel(target: ArTarget, isFirstOpen: boolean) {
     const panel = this.q("arPanel");
-    const titleEl = this.q("arPanelTitle");
-    const hotspotRow = this.q("arHotspotRow");
+    const titleEls = this.qAll("[data-panel-title]");
+    const hotspotRows = this.qAll("[data-hotspot-row]");
     const dots = this.q("arProgressDots");
     const reopenBtn = this.q<HTMLButtonElement>("arReopenBtn");
-    if (!panel || !titleEl || !hotspotRow || !dots) return;
+    if (!titleEls.length || !hotspotRows.length) return;
 
-    panel.hidden = false;
+    if (panel) panel.hidden = false;
     if (reopenBtn) reopenBtn.hidden = true;
-    titleEl.textContent = target.label;
+    titleEls.forEach((el) => (el.textContent = target.label));
 
-    hotspotRow.innerHTML = "";
-    target.hotspots.forEach((h, idx) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "ar-hotspot-pill";
-      if (this.visited.has(`${target.key}:${h.id}`)) btn.classList.add("is-visited-pill");
-      btn.textContent = `${idx + 1}. ${h.label}`;
-      btn.dataset.hotspotId = h.id;
-      btn.addEventListener("click", () => this.selectHotspot(target, h, btn));
-      hotspotRow.appendChild(btn);
+    hotspotRows.forEach((hotspotRow) => {
+      hotspotRow.innerHTML = "";
+      target.hotspots.forEach((h, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "ar-hotspot-pill";
+        if (this.visited.has(`${target.key}:${h.id}`)) btn.classList.add("is-visited-pill");
+        btn.innerHTML = `<span class="ar-hotspot-pill-index">${String(idx + 1).padStart(2, "0")}</span><span class="ar-hotspot-pill-label">${h.label}</span>`;
+        btn.dataset.hotspotId = h.id;
+        btn.addEventListener("click", () => this.selectHotspot(target, h));
+        hotspotRow.appendChild(btn);
+      });
     });
 
-    dots.innerHTML = target.hotspots
-      .map(
-        (h) =>
-          `<span class="ar-dot${this.visited.has(`${target.key}:${h.id}`) ? " is-visited" : ""}" data-hotspot-id="${h.id}"></span>`,
-      )
-      .join("");
+    if (dots) {
+      dots.innerHTML = target.hotspots
+        .map(
+          (h) =>
+            `<span class="ar-dot${this.visited.has(`${target.key}:${h.id}`) ? " is-visited" : ""}" data-hotspot-id="${h.id}"></span>`,
+        )
+        .join("");
+    }
 
     if (isFirstOpen) {
       this.updateModel(target.key, target.model, true);
@@ -556,17 +617,18 @@ export class ArEngine {
     }
   }
 
-  private selectHotspot(target: ArTarget, hotspot: ArTarget["hotspots"][number], btnEl?: HTMLButtonElement) {
+  private selectHotspot(target: ArTarget, hotspot: ArTarget["hotspots"][number]) {
     if (this.audioBusy) return;
 
-    const hotspotRow = this.q("arHotspotRow");
     const dots = this.q("arProgressDots");
 
-    hotspotRow?.querySelectorAll(".ar-hotspot-pill").forEach((el) => el.classList.remove("is-active"));
-    if (btnEl) {
-      btnEl.classList.add("is-active");
-      btnEl.classList.add("is-visited-pill");
-    }
+    // Bukan cuma satu tombol yang diklik yang wajib ke-highlight - hotspot
+    // yang sama muncul di DUA baris (mobile + desktop) sekaligus, jadi cari
+    // lewat data-hotspot-id di SELURUH dokumen, bukan cuma di satu row.
+    document.querySelectorAll(".ar-hotspot-pill").forEach((el) => el.classList.remove("is-active"));
+    document.querySelectorAll(`.ar-hotspot-pill[data-hotspot-id="${hotspot.id}"]`).forEach((el) => {
+      el.classList.add("is-active", "is-visited-pill");
+    });
 
     this.updateModel(target.key, hotspot.model || target.model, false);
     this.applyPresetView(hotspot.view);
@@ -607,14 +669,21 @@ export class ArEngine {
     const sceneRoot = this.q("arSceneRoot");
     if (!sceneRoot) return;
 
+    const isViewer = this.mode === "viewer3d";
+
     const targetsHtml = this.config.targets
       .map((t) => {
         const animMode = t.model.includes("homo-sapiens.glb") ? "none" : "all";
-        return `
-      <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
+        const wrapperHtml = `
         <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="1 1 1" rotation="0 0 0">
           <a-gltf-model src="${t.model}" position="0 0 0" autoplay-animations="mode: ${animMode}"></a-gltf-model>
-        </a-entity>
+        </a-entity>`;
+        // Mode viewer3d: entity biasa, langsung tampil - tidak ada marker fisik
+        // buat di-scan jadi tidak butuh mindar-image-target sama sekali.
+        return isViewer
+          ? `<a-entity data-target-key="${t.key}">${wrapperHtml}</a-entity>`
+          : `
+      <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">${wrapperHtml}
       </a-entity>`;
       })
       .join("");
@@ -638,11 +707,24 @@ export class ArEngine {
     // ada error konsol, tapi TIDAK ADA piksel yang tampil (diverifikasi lewat
     // screenshot CDP: skor render sehat 100%, tapi model baru kelihatan setelah
     // cahaya disuntik manual dengan intensitas fisik yang wajar).
-    sceneRoot.innerHTML = `
-    <a-scene mindar-image="imageTargetSrc: ${this.config.targetMind}; autoStart: true; filterMinCF: 0.00001; filterBeta: 5; warmupTolerance: 5; missTolerance: 5;"
+    // Mode viewer3d: tanpa mindar-image (tidak ada video/tracking), dan kamera
+    // ditaruh mundur sedikit di sumbu Z supaya model (yang di-normalize ke
+    // maks 1 satuan) kelihatan utuh - beda dari mode kamera, di mana kamera
+    // duduk di titik anchor (0 0 0) dan MindAR yang ngatur jaraknya via marker.
+    // `alpha: true` biar canvas transparan, nunjukin background CSS di
+    // belakangnya alih-alih hitam solid bawaan renderer.
+    const sceneAttrs = isViewer
+      ? `color-space="sRGB" renderer="colorManagement: true; alpha: true" xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false"`
+      : `mindar-image="imageTargetSrc: ${this.config.targetMind}; autoStart: true; filterMinCF: 0.00001; filterBeta: 5; warmupTolerance: 5; missTolerance: 5;"
       color-space="sRGB" renderer="colorManagement: true"
-      xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false"`;
+    const cameraHtml = isViewer
+      ? `<a-camera position="0 0 2.2" look-controls="enabled: false"></a-camera>`
+      : `<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>`;
+
+    sceneRoot.innerHTML = `
+    <a-scene ${sceneAttrs}>
+      ${cameraHtml}
       ${targetsHtml}
     </a-scene>
   `;
@@ -667,6 +749,11 @@ export class ArEngine {
       // zoom & rotasi terjadi DI TEMPAT untuk semua materi, dan tetap benar walau
       // GLB versi lama (origin meleset) masih ke-cache.
       modelEl?.addEventListener("model-loaded", () => this.normalizeModel(modelEl as any, t.key));
+
+      // Viewer3D tidak punya anchor MindAR sama sekali - tidak ada yang perlu
+      // di-watch/found/lost, activateTarget() (dipanggil manual dari start()
+      // atau selectTarget()) yang ngurus tampil/sembunyinya.
+      if (isViewer) return;
 
       // Sembunyikan/munculkan model pakai event MindAR yang sudah di-debounce
       // (missTolerance), jadi model hilang saat marker benar-benar keluar frame
@@ -815,7 +902,7 @@ export class ArEngine {
         // targetLost seperti biasa. Transisi found kita hook di bawah.
         forward(worldMatrix);
         if (!worldMatrix) return;
-        this.onTargetTracked(anchorEl, t);
+        this.activateTarget(t);
       };
       return true;
     };
@@ -829,11 +916,17 @@ export class ArEngine {
     }
   }
 
-  /** Dipanggil tiap frame selama target ke-track; isinya cuma jalan pas transisi. */
-  private onTargetTracked(anchorEl: any, t: ArTarget) {
+  /**
+   * Dipanggil tiap kali sebuah target jadi "aktif": mode kamera lewat transisi
+   * targetFound (dari watchTarget di atas), mode viewer3d dipanggil manual
+   * dari start() (auto-pilih target pertama) dan selectTarget() (klik chip
+   * pemilih target). Isinya sama persis di kedua mode - buka panel, tampilkan
+   * kontrol, sembunyikan target lain (biar model gak numpuk buat materi
+   * multi-target).
+   */
+  private activateTarget(t: ArTarget) {
     if (this.trackingKey === t.key) return;
 
-    // Materi multi-target: sembunyiin model target sebelumnya biar nggak numpuk.
     if (this.trackingKey) {
       const prev = this.q("arSceneRoot")?.querySelector(`[data-target-key="${this.trackingKey}"]`) as any;
       if (prev?.object3D) prev.object3D.visible = false;
@@ -841,7 +934,8 @@ export class ArEngine {
 
     this.trackingKey = t.key;
     this.activeTarget = t;
-    if (anchorEl.object3D) anchorEl.object3D.visible = true;
+    const el = this.q("arSceneRoot")?.querySelector(`[data-target-key="${t.key}"]`) as any;
+    if (el?.object3D) el.object3D.visible = true;
 
     document.body.classList.add("ar-locked-in");
     const hint = this.q("arScanHint");
@@ -856,12 +950,23 @@ export class ArEngine {
     if (isFirstTime) this.openPanel(t, true);
   }
 
+  /** Viewer3D saja: ganti target aktif lewat chip pemilih, bukan hasil scan. */
+  selectTarget = (key: string) => {
+    if (this.mode !== "viewer3d") return;
+    const t = this.config.targets.find((x) => x.key === key);
+    if (t) this.activateTarget(t);
+  };
+
   start() {
     ensureAutoplayComponent();
-    ensureCameraFitPatch();
+    if (this.mode === "camera") ensureCameraFitPatch();
     this.buildScene();
     this.updateGateButton();
     this.initDragRotate();
+    if (this.mode === "viewer3d") {
+      const first = this.config.targets[0];
+      if (first) this.activateTarget(first);
+    }
   }
 
   /** Bersihin listener, audio, dan A-Frame scene pas komponen React unmount. */

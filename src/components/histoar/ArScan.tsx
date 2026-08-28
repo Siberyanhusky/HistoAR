@@ -7,7 +7,7 @@ import { loadScript } from "@/lib/load-script";
 import { ArEngine } from "@/lib/ar-engine";
 import { arBreadcrumb, captureArModelError } from "@/lib/monitoring";
 import type { ArMateriConfig } from "@/lib/histoar-types";
-import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X } from "lucide-react";
+import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X, Box } from "lucide-react";
 
 export function ArScan({
   materiId,
@@ -178,12 +178,21 @@ export function ArScan({
           <ChevronLeft className="h-4 w-4" /> Kembali
         </button>
         <h1 className="font-display text-sm font-medium">{materiJudul}</h1>
-        <button
-          onClick={restartCamera}
-          className="ml-auto flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-        >
-          <RotateCcw className="h-4 w-4" /> Kamera bermasalah?
-        </button>
+        <div className="ml-auto flex items-center gap-3">
+          <button
+            onClick={restartCamera}
+            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          >
+            <RotateCcw className="h-4 w-4" /> Kamera bermasalah?
+          </button>
+          <button
+            onClick={() => navigate({ to: "/materi/$id/viewer", params: { id: materiId } })}
+            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            title="Coba mode 3D tanpa kamera"
+          >
+            <Box className="h-4 w-4" /> Mode 3D
+          </button>
+        </div>
       </header>
 
       <div id="arSceneRoot" className="ar-scene-root fixed inset-0" />
@@ -291,7 +300,7 @@ export function ArScan({
         </button>
 
         <div className="flex items-center justify-between px-5">
-          <h2 id="arPanelTitle" className="font-display text-lg font-medium">
+          <h2 id="arPanelTitle" data-panel-title className="font-display text-lg font-medium">
             …
           </h2>
           <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-white/10">
@@ -300,15 +309,16 @@ export function ArScan({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-5">
-          <div id="arHotspotRow" className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-border [&_.ar-hotspot-pill]:bg-background/40 [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-primary [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-success/60 [&_.ar-hotspot-pill:disabled]:opacity-40" />
+          <div id="arHotspotRow" data-hotspot-row className="mt-3 flex flex-wrap gap-2 empty:hidden [&_.ar-hotspot-pill]:inline-flex [&_.ar-hotspot-pill]:items-center [&_.ar-hotspot-pill]:gap-1.5 [&_.ar-hotspot-pill]:rounded-full [&_.ar-hotspot-pill]:border [&_.ar-hotspot-pill]:border-border [&_.ar-hotspot-pill]:bg-background/40 [&_.ar-hotspot-pill]:px-3 [&_.ar-hotspot-pill]:py-1.5 [&_.ar-hotspot-pill]:text-xs [&_.ar-hotspot-pill.is-active]:bg-primary [&_.ar-hotspot-pill.is-active]:text-primary-foreground [&_.ar-hotspot-pill.is-visited-pill]:border-success/60 [&_.ar-hotspot-pill:disabled]:opacity-40 [&_.ar-hotspot-pill-index]:font-mono [&_.ar-hotspot-pill-index]:text-[0.65rem] [&_.ar-hotspot-pill-index]:opacity-60" />
 
           {/* Bagian panjang: disembunyikan saat panel di-peek biar model AR keliatan. */}
-          <div className={panelExpanded ? "" : "hidden"}>
-            <p id="arPanelDesc" className="mt-3 text-sm leading-relaxed text-muted-foreground [&:not(.is-expanded)]:line-clamp-3">
+          <div className={panelExpanded ? "" : "hidden"} data-panel-body>
+            <p id="arPanelDesc" data-panel-desc className="mt-3 text-sm leading-relaxed text-muted-foreground [&:not(.is-expanded)]:line-clamp-3">
               …
             </p>
             <button
               id="arDescToggle"
+              data-desc-toggle
               hidden
               onClick={() => engineRef.current?.toggleDesc()}
               className="mt-1 text-xs font-medium text-primary"
