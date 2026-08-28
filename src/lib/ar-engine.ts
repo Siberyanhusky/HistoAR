@@ -34,6 +34,10 @@ const MIN_ZOOM = 0.2;
 const DEFAULT_MAX_ZOOM = 4;
 const ROTATE_SPEED = 0.4;
 const MOVE_STEP = 0.02;
+// Batas tilt (rotX) saat allowTiltDrag aktif - dijaga jauh dari ±90° biar model
+// nggak pernah "kebalik" (gimbal terasa aneh) walau jari ditarik jauh melewati
+// tepi layar.
+const TILT_DRAG_MAX = 80;
 
 // Resolusi kamera yang diminta ke getUserMedia. MindAR sendiri cuma minta
 // `{ facingMode: "environment" }`, dan default browser HP itu 640x480 LANDSCAPE.
@@ -270,10 +274,20 @@ export class ArEngine {
   private onPointerMove = (e: PointerEvent) => {
     if (!this.dragging || !this.activeTarget) return;
     const dx = e.clientX - this.lastX;
+    const dy = e.clientY - this.lastY;
     this.lastX = e.clientX;
     this.lastY = e.clientY;
     this.rotY += dx * ROTATE_SPEED;
-    this.rotX = 0;
+    // Default: drag vertikal tidak melakukan apa-apa (perilaku lama, tetap
+    // dipakai semua materi lain). Materi yang butuh lihat model dari atas
+    // (mis. m3-0 "Ragam Temuan" - Ekskavasi Digital) mengaktifkan
+    // `allowTiltDrag` di ar.json supaya drag atas-bawah ikut memutar sumbu X.
+    if (this.config.allowTiltDrag) {
+      const nextRotX = this.rotX - dy * ROTATE_SPEED;
+      this.rotX = Math.min(TILT_DRAG_MAX, Math.max(-TILT_DRAG_MAX, nextRotX));
+    } else {
+      this.rotX = 0;
+    }
     this.applyWrapperTransform(this.activeTarget.key);
   };
   private onPointerUp = () => {

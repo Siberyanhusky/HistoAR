@@ -826,6 +826,7 @@
   "m3-0": {
     "targetMind": "/assets/ar/targets/ragam-temuan-manusia-purba.mind",
     "maxZoom": 4,
+    "allowTiltDrag": true,
     "targets": [
       {
         "key": "Ragam Temuan Manusia Purba",

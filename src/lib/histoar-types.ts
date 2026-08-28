@@ -74,6 +74,11 @@ export interface ArTarget {
 export interface ArMateriConfig {
   targetMind: string;
   maxZoom?: number;
+  // Izinkan drag vertikal (atas-bawah layar) ikut memutar model di sumbu X,
+  // bukan cuma horizontal/sumbu Y seperti default. Dipakai materi yang
+  // beberapa modelnya perlu dilihat dari atas (mis. "Ekskavasi Digital" di
+  // Ragam Temuan) - lihat ROTX_DRAG_RANGE di ar-engine.ts untuk batas sudutnya.
+  allowTiltDrag?: boolean;
   targets: ArTarget[];
 }
 
