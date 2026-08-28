@@ -15,7 +15,26 @@ export default defineConfig({
     }),
     // preset "vercel" tells Nitro to output the build in the format
     // Vercel expects (the Lovable default was "cloudflare")
-    nitro({ preset: "vercel" }),
+    nitro({
+      preset: "vercel",
+      // Header keamanan murah yang aman buat semua route (termasuk aset
+      // statis) - dipasang lewat routeRules Nitro (bukan vercel.json
+      // terpisah) supaya benar-benar ke-bake ke build output Vercel, bukan
+      // berpotensi ke-abaikan/override. Sengaja TIDAK termasuk
+      // Content-Security-Policy: app ini pakai WebGL/kamera getUserMedia/
+      // audio blob/fetch ke Kie.ai/Sentry/Upstash - CSP yang kurang tepat
+      // bisa diam-diam mematikan AR/chatbot tanpa error yang jelas ke siswa,
+      // itu kerjaan terpisah yang butuh testing hati-hati.
+      routeRules: {
+        "/**": {
+          headers: {
+            "X-Content-Type-Options": "nosniff",
+            "Referrer-Policy": "strict-origin-when-cross-origin",
+            "X-Frame-Options": "SAMEORIGIN",
+          },
+        },
+      },
+    }),
     viteReact(),
   ],
 });
