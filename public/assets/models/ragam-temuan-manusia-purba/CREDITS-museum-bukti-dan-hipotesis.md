@@ -1,8 +1,8 @@
-# Attribution — museum-bukti-dan-hipotesis.glb
+# Attribution - museum-bukti-dan-hipotesis.glb
 
 This model combines real photogrammetry/CT scans sourced from Sketchfab (used under CC Attribution) with simple original geometry (museum platform, pedestals, scientific tools) built for this project.
 
-## Sketchfab sources (CC Attribution — https://creativecommons.org/licenses/by/4.0/)
+## Sketchfab sources (CC Attribution - https://creativecommons.org/licenses/by/4.0/)
 
 - **LB1 - Homo floresiensis [skull]** by nebulousflynn
   https://sketchfab.com/3d-models/4e424b65d4804a6f9be00215e5172128
@@ -12,7 +12,7 @@ This model combines real photogrammetry/CT scans sourced from Sketchfab (used un
   https://sketchfab.com/3d-models/71ff6fd96ce248d2863c89372250a171
   Used as the RIGHT comparative specimen.
 
-- ~~Human Skull (Homo sapiens) - Cráneo humano~~ by caiarqueometriaucm — **replaced 2026-08-21**, see below.
+- ~~Human Skull (Homo sapiens) - Cráneo humano~~ by caiarqueometriaucm - **replaced 2026-08-21**, see below.
 
 - **Human Male Skull** by Ruslan Gadzhiev (https://sketchfab.com/ruslangadzhiev)
   https://sketchfab.com/3d-models/human-male-skull-f1eaaef50e5845c796d6834fd1b702e5

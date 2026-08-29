@@ -12,7 +12,7 @@ type ChatMessage = {
 // Korpus materi HistoAR disuntik ke prompt supaya jawaban benar-benar
 // bersumber dari materi, bukan pengetahuan model. PENTING: pakai `konten`
 // (isi bab lengkap per materi), bukan cuma `ringkasan` (1-2 kalimat teaser)
-// — sebelumnya cuma pakai ringkasan, jadi HistoAI ngaku "belum dibahas"
+// - sebelumnya cuma pakai ringkasan, jadi HistoAI ngaku "belum dibahas"
 // untuk hal yang sebenarnya ada di materi, cuma gak pernah disuntikkan.
 // Total korpus lengkap ~22KB, masih ringan untuk model modern.
 const MATERI_KORPUS = (materiData as MateriData).materi
@@ -55,7 +55,7 @@ jangan menambahkan fakta, nama, angka, atau tanggal yang tidak tertulis di mater
 // membengkakkan token (biaya) atau menyelundupkan instruksi panjang.
 const MAX_HISTORY_MESSAGES = 10;
 
-// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung —
+// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung -
 // Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
 // nyetop model itu untuk API key baru. Nama model taruh di URL path.
 const MODEL = "gemini-2.5-flash";

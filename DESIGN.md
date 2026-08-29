@@ -1,10 +1,10 @@
-# HistoAR — Design System
+# HistoAR - Design System
 
 ## Tesis Visual
 
 **"Jurnal lapangan situs purbakala Indonesia, didigitalkan."**
 
-HistoAR bukan demo teknologi AR — ia adalah arsip/museum digital yang kebetulan punya AR
+HistoAR bukan demo teknologi AR - ia adalah arsip/museum digital yang kebetulan punya AR
 sebagai salah satu alat. Setiap keputusan desain melayani kesan **"serius & otentik seperti
 museum sungguhan"**, bukan "canggih & futuristik". Ketika keduanya bentrok, otentisitas menang.
 
@@ -32,14 +32,14 @@ bukan bounce/pulse/shimmer.
 |---|---|---|
 | Display / heading (h1-h4) | **Fraunces** (variable, optical sizing "soft") | Serif hangat-bertekstur, editorial, punya karakter tulisan arkeolog tanpa jadi klise serif berita |
 | Body / UI | **Public Sans** | Sans humanis, keterbacaan tinggi untuk siswa SMA, bukan Inter default |
-| Label / mono (nomor katalog, koordinat, meta AR) | **IBM Plex Mono** | Motif "kartu katalog museum" — huruf kecil, letter-spacing lebar, UPPERCASE |
+| Label / mono (nomor katalog, koordinat, meta AR) | **IBM Plex Mono** | Motif "kartu katalog museum" - huruf kecil, letter-spacing lebar, UPPERCASE |
 
 Muat via Google Fonts (`@fontsource` atau `<link>` di `__root.tsx`), self-host kalau perlu offline.
 
 Skala heading pakai Fraunces optical size besar di h1 (contoh: `clamp(2.5rem, 5vw, 4.5rem)`),
 letter-spacing sedikit negatif di ukuran besar, sedikit positif di label mono kecil.
 
-## Warna (dark-first — scene AR butuh background gelap, tapi hangat bukan biru-dingin)
+## Warna (dark-first - scene AR butuh background gelap, tapi hangat bukan biru-dingin)
 
 Base OKLCH, hue di kisaran 40-70 (coklat-oranye-hijau), BUKAN 200-280 (biru-ungu) yang dipakai
 versi lama.
@@ -62,7 +62,7 @@ versi lama.
 ```
 
 Tidak ada `--gradient-aurora`, `--holo`, `--shadow-holo`. Boleh ada `--grain` (noise tipis, SVG
-turbulence, opacity ~3-4%) untuk tekstur "kertas/batu" di background — ganti peran aurora sebagai
+turbulence, opacity ~3-4%) untuk tekstur "kertas/batu" di background - ganti peran aurora sebagai
 "sesuatu yang bikin background tidak flat", tapi tanpa warna neon.
 
 ## Layout & Komposisi
@@ -70,8 +70,8 @@ turbulence, opacity ~3-4%) untuk tekstur "kertas/batu" di background — ganti p
 - Viewport pertama = **poster**, bukan dokumen: satu headline Fraunces besar + satu visual
   kuat (render 3D/AR atau foto artefak), minim chrome.
 - Label ala kartu katalog museum sebagai motif berulang: mono, uppercase, letter-spacing lebar,
-  contoh `NO. 03 — SITUS MEGALITIK`, `KOLEKSI ZAMAN LOGAM`.
-- Grid editorial dengan padding generus di sekitar gambar/model 3D — biarkan visual "bernapas",
+  contoh `NO. 03 - SITUS MEGALITIK`, `KOLEKSI ZAMAN LOGAM`.
+- Grid editorial dengan padding generus di sekitar gambar/model 3D - biarkan visual "bernapas",
   jangan dijejali kartu-kartu kecil berimpitan.
 - Border tipis (hairline, `border-white/8`) menggantikan drop-shadow lembut sebagai pemisah.
 
@@ -81,13 +81,13 @@ turbulence, opacity ~3-4%) untuk tekstur "kertas/batu" di background — ganti p
   atau cubic-bezier custom yang tidak bouncy).
 - Transisi antar state: crossfade lambat, bukan snap.
 - AR/interaksi teknis (viewer 3D, tombol scan): boleh sedikit lebih "presisi/cepat" karena itu
-  memang alat, tapi tetap tanpa glow/pulse neon — pakai perubahan warna aksen ember + border.
+  memang alat, tapi tetap tanpa glow/pulse neon - pakai perubahan warna aksen ember + border.
 
 ## Komponen yang perlu direbuild
 
-1. `styles.css` — tokens, font, hapus utilities lama (glass/holo/aurora/particle keyframes)
+1. `styles.css` - tokens, font, hapus utilities lama (glass/holo/aurora/particle keyframes)
 2. `nav.tsx`, `footer.tsx`, `aurora-background.tsx` (ganti jadi grain/texture background atau hapus), `particles.tsx` (hapus/ganti)
 3. `sections/hero.tsx`, `ar-showcase.tsx`, `experience.tsx`, `learn.tsx`, `timeline.tsx`, `quiz.tsx`, `ai-guide.tsx`
 4. `histoar/MateriGrid.tsx`, `QuizPanel.tsx`, `ArScan.tsx`, `Chatbot.tsx`, `CoreSample.tsx`
 5. `routes/materi/*`, `routes/quiz/*`, `routes/index.tsx`
-6. `ui/*` (shadcn primitives) — sesuaikan token warna & radius, TIDAK perlu ditulis ulang total
+6. `ui/*` (shadcn primitives) - sesuaikan token warna & radius, TIDAK perlu ditulis ulang total

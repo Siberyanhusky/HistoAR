@@ -1,12 +1,12 @@
 /**
- * monitoring.ts — Error tracking (Sentry) untuk HistoAR.
+ * monitoring.ts - Error tracking (Sentry) untuk HistoAR.
  *
  * Tujuan: melihat error yang terjadi di PERANGKAT SISWA (HP) yang tak bisa kita
- * reproduksi sendiri — terutama kegagalan AR (WebGL/MindAR/three, model gagal
+ * reproduksi sendiri - terutama kegagalan AR (WebGL/MindAR/three, model gagal
  * muat). Tanpa ini, bug di HP hanya bisa ditebak dari screenshot.
  *
  * DSN dibaca dari `VITE_SENTRY_DSN`. Kalau kosong (belum diisi), init jadi
- * NO-OP total — app tetap jalan normal, tak ada error. Jadi aman di-merge
+ * NO-OP total - app tetap jalan normal, tak ada error. Jadi aman di-merge
  * sebelum akun Sentry siap; cukup isi env var-nya nanti (di .env & Vercel).
  * DSN aman diekspos ke client (memang dirancang publik).
  */
@@ -65,7 +65,7 @@ export function captureArModelError(info: {
   });
 }
 
-/** Breadcrumb lifecycle AR — jejak langkah sebelum error muncul. */
+/** Breadcrumb lifecycle AR - jejak langkah sebelum error muncul. */
 export function arBreadcrumb(message: string, data?: Record<string, unknown>) {
   Sentry.addBreadcrumb({ category: "ar", level: "info", message, data });
 }

@@ -868,21 +868,21 @@ export class ArEngine {
 
   /**
    * Kita cuma "nyempil" di updateWorldMatrix buat nge-hook transisi found
-   * (onTargetTracked: buka panel, set activeTarget, tampilin kontrol) — BUKAN
+   * (onTargetTracked: buka panel, set activeTarget, tampilin kontrol) - BUKAN
    * buat ngubah perilaku visibilitas MindAR.
    *
    * PENTING (bug "model nyangkut di layar"): setiap update HARUS tetap diteruskan
    * ke MindAR, termasuk update null. MindAR sendiri yang nge-emit event
    * `targetLost`/`targetFound` (dan nge-set object3D.visible) di dalam
    * updateWorldMatrix. Versi lama nyegat null di sini ("pertahankan pose
-   * terakhir") — akibatnya MindAR nggak pernah nge-emit targetLost, jadi
+   * terakhir") - akibatnya MindAR nggak pernah nge-emit targetLost, jadi
    * handleTargetLost mati total dan model tetap kelihatan walau marker udah
    * keluar frame. Sekarang null tetap diteruskan: MindAR nge-emit targetLost
    * (udah di-debounce lewat missTolerance, jadi jitter sesaat nggak bikin
    * kelap-kelip) -> handleTargetLost sembunyiin model + balikin hint scan.
    *
    * Yang TETAP kita hindari: nge-hack `object3D.visible = true` di targetLost
-   * (bug lama) — itu yang dulu bikin transform kolaps ke satu titik + targetFound
+   * (bug lama) - itu yang dulu bikin transform kolaps ke satu titik + targetFound
    * mati permanen. Di sini kita nggak nyentuh .visible sama sekali di jalur ini.
    */
   private watchTarget(el: Element, t: ArTarget) {

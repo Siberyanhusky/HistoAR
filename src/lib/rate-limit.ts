@@ -4,7 +4,7 @@
 // lingkungan serverless (Vercel) yang instance-nya bisa hidup-mati.
 //
 // Kalau env UPSTASH_* belum diset (mis. saat dev lokal), rate-limit otomatis
-// dinonaktifkan — semua request dilewatkan — jadi app tetap jalan tanpa Redis.
+// dinonaktifkan - semua request dilewatkan - jadi app tetap jalan tanpa Redis.
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";

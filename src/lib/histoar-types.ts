@@ -1,4 +1,4 @@
-// Tipe data untuk konten Histoar — materi, quiz, dan konfigurasi AR.
+// Tipe data untuk konten Histoar - materi, quiz, dan konfigurasi AR.
 // Struktur mengikuti data/materi.json, data/quiz.json, data/ar.json.
 
 export interface MateriKonten {

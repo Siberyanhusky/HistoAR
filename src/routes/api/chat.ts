@@ -6,7 +6,7 @@ import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
-// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung —
+// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung -
 // Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
 // nyetop model itu untuk API key baru. Nama model taruh di URL path.
 const MODEL = "gemini-2.5-flash";
@@ -17,7 +17,7 @@ function cariMateri(id: string) {
 }
 
 // PENTING: pakai `konten` (isi bab lengkap), bukan cuma `ringkasan`
-// (1-2 kalimat teaser) — kalau cuma ringkasan, HistoAI ngaku "belum
+// (1-2 kalimat teaser) - kalau cuma ringkasan, HistoAI ngaku "belum
 // dibahas" untuk hal yang sebenarnya ada di materi.
 function konteksLengkap(materi: NonNullable<ReturnType<typeof cariMateri>>) {
   const bagian = materi.konten.map((k) => `### ${k.judul}\n${k.isi}`).join("\n\n");

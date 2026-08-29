@@ -257,7 +257,7 @@ export function Viewer3D({
         </div>
       )}
 
-      {/* ================= SIDEBAR KIRI (desktop, >=1024px) — "MATERI" ================= */}
+      {/* ================= SIDEBAR KIRI (desktop, >=1024px) - "MATERI" ================= */}
       <aside className="hairline fixed left-6 top-24 bottom-6 z-20 hidden w-[260px] flex-col overflow-y-auto rounded-2xl bg-card/80 p-5 backdrop-blur-md lg:flex">
         <p className="catalog-label">Materi</p>
         <div
@@ -323,7 +323,7 @@ export function Viewer3D({
         )}
       </div>
 
-      {/* ================= SIDEBAR KANAN (desktop) — "PEMBAHASAN" ================= */}
+      {/* ================= SIDEBAR KANAN (desktop) - "PEMBAHASAN" ================= */}
       <aside className="hairline fixed right-6 top-24 bottom-6 z-20 hidden w-[340px] flex-col overflow-y-auto rounded-2xl bg-card/80 p-6 backdrop-blur-md lg:flex" data-panel-body>
         <p className="catalog-label">Pembahasan</p>
         <h2 data-panel-title className="mt-2 font-display text-xl font-semibold leading-snug">
@@ -347,7 +347,7 @@ export function Viewer3D({
         </div>
       </aside>
 
-      {/* ================= MOBILE (<1024px) — bottom sheet & rail lama, TIDAK berubah ================= */}
+      {/* ================= MOBILE (<1024px) - bottom sheet & rail lama, TIDAK berubah ================= */}
       <button
         id="arReopenBtn"
         hidden={!reopenVisible}
