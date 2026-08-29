@@ -60,7 +60,10 @@ export function Viewer3D({
   const [showViewControls, setShowViewControls] = useState(false);
   const [showMoveControls, setShowMoveControls] = useState(false);
   const [panelHidden, setPanelHidden] = useState(true);
-  const [panelExpanded, setPanelExpanded] = useState(false);
+  // Beda dari ArScan.tsx: mode ini TIDAK punya kamera live buat dilindungi,
+  // jadi gak ada alasan mulai collapsed - deskripsi langsung kebuka begitu
+  // panel muncul (baik intro maupun pas pilih hotspot), gak perlu tarik manual.
+  const [panelExpanded, setPanelExpanded] = useState(true);
   const [reopenVisible, setReopenVisible] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [sheetOffset, setSheetOffset] = useState(0);
