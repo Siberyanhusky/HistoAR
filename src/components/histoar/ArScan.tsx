@@ -27,9 +27,10 @@ export function ArScan({
   const [showViewControls, setShowViewControls] = useState(false);
   const [showMoveControls, setShowMoveControls] = useState(false);
   const [panelHidden, setPanelHidden] = useState(true);
-  // Panel di-peek (pendek) secara default supaya area scan AR lega di HP;
-  // tap gagang untuk melebarkan & baca detail. Fix "kepotong / nggak full layar".
-  const [panelExpanded, setPanelExpanded] = useState(false);
+  // Deskripsi langsung kebuka begitu panel muncul (konsisten sama
+  // Viewer3D.tsx) - tarik gagang tetap bisa buat collapse manual kalau area
+  // kamera kerasa sempit.
+  const [panelExpanded, setPanelExpanded] = useState(true);
   const [reopenVisible, setReopenVisible] = useState(false);
   // Panel bisa DIGESER turun-naik dengan menarik gagangnya, karena di HP kecil
   // sheet ini menutupi model/diorama yang lagi dijelaskan. Nilainya piksel ke

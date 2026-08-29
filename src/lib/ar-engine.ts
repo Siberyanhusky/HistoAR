@@ -289,13 +289,12 @@ export class ArEngine {
     this.lastX = e.clientX;
     this.lastY = e.clientY;
     this.rotY += dx * ROTATE_SPEED;
-    // Default: drag vertikal tidak melakukan apa-apa (perilaku lama, tetap
-    // dipakai semua materi lain di mode kamera). Materi yang butuh lihat model
-    // dari atas (mis. m3-0 "Ragam Temuan" - Ekskavasi Digital) mengaktifkan
-    // `allowTiltDrag` di ar.json supaya drag atas-bawah ikut memutar sumbu X.
-    // Mode viewer3d SELALU boleh tilt bebas - tidak ada kartu marker fisik
-    // yang membatasi orientasi "wajar"-nya, jadi orbit penuh yang diharapkan.
-    if (this.mode === "viewer3d" || this.config.allowTiltDrag) {
+    // Default: drag vertikal tidak melakukan apa-apa - berlaku di SEMUA mode
+    // (kamera maupun viewer3d), untuk semua materi lain. Cuma materi yang
+    // butuh lihat model dari atas (mis. m3-0 "Ragam Temuan" - Ekskavasi
+    // Digital) mengaktifkan `allowTiltDrag` di ar.json supaya drag atas-bawah
+    // ikut memutar sumbu X.
+    if (this.config.allowTiltDrag) {
       const nextRotX = this.rotX - dy * ROTATE_SPEED;
       this.rotX = Math.min(TILT_DRAG_MAX, Math.max(-TILT_DRAG_MAX, nextRotX));
     } else {
