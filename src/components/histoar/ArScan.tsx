@@ -7,7 +7,7 @@ import { loadScript } from "@/lib/load-script";
 import { ArEngine } from "@/lib/ar-engine";
 import { arBreadcrumb, captureArModelError } from "@/lib/monitoring";
 import type { ArMateriConfig } from "@/lib/histoar-types";
-import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X, Box } from "lucide-react";
+import { ChevronLeft, Info, Plus, Minus, RotateCcw, Ruler, ArrowUp, ArrowDown, ArrowLeft, ArrowRight, X, Box, Play, Pause } from "lucide-react";
 
 export function ArScan({
   materiId,
@@ -81,6 +81,7 @@ export function ArScan({
   const [gate, setGate] = useState({ done: 0, total: 0, unlocked: false });
   const [modelError, setModelError] = useState<string | null>(null);
   const [restartToken, setRestartToken] = useState(0);
+  const [narration, setNarration] = useState({ playing: false, hasAudio: false });
   // Alat kalibrasi (Salin-View + D-pad) hanya untuk dev/kalibrator, tidak untuk
   // siswa. Aktif saat dev-build ATAU URL punya ?dev=1 (mis. di Vercel Preview).
   // Dihitung setelah mount supaya tidak memicu hydration mismatch.
@@ -118,6 +119,7 @@ export function ArScan({
           // kejadiannya di HP siswa yang tak bisa kita reproduksi.
           captureArModelError({ materi: materiId, targetKey, src });
         },
+        onNarrationChange: (playing, hasAudio) => setNarration({ playing, hasAudio }),
       });
       engineRef.current = engine;
       engine.start();
@@ -299,11 +301,19 @@ export function ArScan({
           <span className="h-1.5 w-10 rounded-full bg-white/25" />
         </button>
 
-        <div className="flex items-center justify-between px-5">
-          <h2 id="arPanelTitle" data-panel-title className="font-display text-lg font-medium">
+        <div className="flex items-center justify-between gap-2 px-5">
+          <h2 id="arPanelTitle" data-panel-title className="min-w-0 flex-1 truncate font-display text-lg font-medium">
             …
           </h2>
-          <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-white/10">
+          <button
+            onClick={() => engineRef.current?.toggleNarration()}
+            disabled={!narration.hasAudio}
+            aria-label={narration.playing ? "Jeda narasi" : "Putar narasi"}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {narration.playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
+          <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full hover:bg-white/10">
             <X className="h-4 w-4" />
           </button>
         </div>

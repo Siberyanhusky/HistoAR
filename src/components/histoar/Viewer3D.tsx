@@ -416,11 +416,19 @@ export function Viewer3D({
           <span className="h-1.5 w-10 rounded-full bg-white/25" />
         </button>
 
-        <div className="flex items-center justify-between px-5">
-          <h2 id="arPanelTitle" data-panel-title className="font-display text-lg font-medium">
+        <div className="flex items-center justify-between gap-2 px-5">
+          <h2 id="arPanelTitle" data-panel-title className="min-w-0 flex-1 truncate font-display text-lg font-medium">
             …
           </h2>
-          <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-white/10">
+          <button
+            onClick={() => engineRef.current?.toggleNarration()}
+            disabled={!narration.hasAudio}
+            aria-label={narration.playing ? "Jeda narasi" : "Putar narasi"}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {narration.playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
+          <button id="arPanelClose" onClick={() => engineRef.current?.closePanel()} aria-label="Tutup panel" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full hover:bg-white/10">
             <X className="h-4 w-4" />
           </button>
         </div>
