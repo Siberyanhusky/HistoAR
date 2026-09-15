@@ -9,7 +9,7 @@ import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 // Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung -
 // Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
 // nyetop model itu untuk API key baru. Nama model taruh di URL path.
-const MODEL = "gemini-2.5-flash-openai";
+const MODEL = "gemini-3-5-flash-openai";
 const API_URL = `https://api.kie.ai/${MODEL}/v1/chat/completions`;
 
 function cariMateri(id: string) {
