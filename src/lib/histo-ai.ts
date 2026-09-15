@@ -93,9 +93,12 @@ export const askHistoAI = createServerFn({ method: "POST" })
       },
       body: JSON.stringify({
         messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...(data.history ?? []).slice(-MAX_HISTORY_MESSAGES),
-          { role: "user", content: data.message },
+          { role: "system", content: [{ type: "text", text: SYSTEM_PROMPT }] },
+          ...(data.history ?? []).slice(-MAX_HISTORY_MESSAGES).map((m) => ({
+            role: m.role,
+            content: [{ type: "text", text: m.content }],
+          })),
+          { role: "user", content: [{ type: "text", text: data.message }] },
         ],
         stream: false,
       }),
