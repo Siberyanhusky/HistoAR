@@ -110,11 +110,24 @@ export const askHistoAI = createServerFn({ method: "POST" })
       throw new Error("HistoAI is having trouble responding right now.");
     }
 
-    const json = (await response.json()) as {
-      choices: Array<{ message: { content: string } }>;
-    };
+    const rawText = await response.text();
+    let json: { choices?: Array<{ message?: { content?: string } }> };
+    try {
+      json = JSON.parse(rawText);
+    } catch {
+      console.error("Kie AI: response bukan JSON valid:", rawText.slice(0, 500));
+      throw new Error(`Kie AI balas non-JSON. Raw: ${rawText.slice(0, 300)}`);
+    }
 
     const text = json.choices?.[0]?.message?.content;
 
-    return { text: text || "Maaf, aku belum bisa menjawab itu sekarang." };
+    // DEBUG SEMENTARA: kalau content kosong, throw supaya isi response
+    // mentah kelihatan lewat [DEBUG] di ai-guide.tsx tanpa perlu buka
+    // Vercel Function Logs. Hapus lagi setelah akar masalahnya ketemu.
+    if (!text) {
+      console.error("Kie AI: content kosong, response mentah:", rawText.slice(0, 1000));
+      throw new Error(`Kie AI balas tanpa content. Raw: ${rawText.slice(0, 500)}`);
+    }
+
+    return { text };
   });
