@@ -1,383 +1,388 @@
-"m1-praaksara": [
-{
-  "id": "m1-praaksara",
-  "urutan": 0,
-  "kode": "1 / PRAAKSARA",
-  "layerColor": "#5a4632",
-  "judul": "Praaksara: Kehidupan Sebelum Ada Tulisan",
-  "ringkasan": "Bayangkan menggali kebun dan cangkul membentur batu berbentuk aneh, tajam di satu sisi. Tanpa tulisan, bagaimana kita tahu itu buatan manusia, berapa umurnya, dan siapa yang pernah menggenggamnya?",
-  "konten": [
-    {
-      "judul": "Sebuah Teka-Teki dari Tanah",
-      "isi": "Bayangkan kalian sedang menggali kebun di halaman rumah. Cangkul kalian membentur sesuatu yang keras. Setelah dibersihkan, muncul batu berbentuk aneh: pipih, tajam di satu sisi, mirip kapak tanpa tangkai. Batu itu jelas bukan buatan pabrik, tidak ada cap merek maupun tulisan yang menandai pembuatnya. Sebelum lanjut, coba jawab tiga pertanyaan: dari mana kalian tahu benda itu buatan manusia bukan kebetulan alam, berapa umurnya dan siapa yang pertama kali menggenggamnya, dan kalau tidak ada catatan tertulis, bukti apa yang bisa dipercaya?"
-    },
-    {
-      "judul": "Apa itu Praaksara",
-      "isi": "Praaksara berarti \"sebelum tulisan\". Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15)."
-    },
-    {
-      "judul": "Bukti Tanpa Tulisan",
-      "isi": "Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
-    }
-  ]
-},
-{
-  "materi": [
-    {
-      "id": "m1",
-      "urutan": 1,
-      "kode": "2 / PERIODISASI",
-      "layerColor": "#8a7256",
-      "judul": "Periodisasi Geologi: Bumi Sebelum Manusia",
-      "ringkasan": "Bumi jauh lebih tua dari manusia. Empat zaman geologi menjelaskan bagaimana bumi bersiap menjadi rumah bagi kehidupan.",
-      "konten": [
-        {
-          "judul": "Apa itu Praaksara",
-          "isi": "Praaksara berarti “sebelum tulisan”. Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15). Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
-        },
-        {
-          "judul": "Empat Zaman Geologi",
-          "isi": "Berdasarkan geologi, sejarah bumi dibagi ke dalam empat zaman. Arkaekum/Arkeozoikum (± 2.500 juta tahun lalu): zaman tertua, bumi masih sangat panas dan belum stabil, belum ada kehidupan. Paleozoikum/Zaman Primer (± 340 juta tahun lalu): tanda kehidupan mulai muncul — mikroorganisme, ikan, amfibi, reptil awal, invertebrata. Mesozoikum/Zaman Sekunder (± 140 juta tahun lalu): zaman reptil raksasa (dinosaurus), burung dan mamalia mulai muncul. Neozoikum/Zaman Hidup Baru (60 juta tahun lalu hingga kini): terbagi Tersier (mamalia menyusui berkembang pesat) dan Kuartier, zaman terpenting karena tanda kehidupan manusia mulai muncul sekitar 3 juta tahun lalu."
-        },
-        {
-          "judul": "Bumi yang Tidak Tenang",
-          "isi": "Ketika manusia mulai muncul di penghujung Neozoikum, permukaan bumi tidak tenang: es meluas menutupi sebagian muka bumi (zaman glasial), iklim berubah drastis, permukaan air laut naik-turun, daratan baru muncul dan tenggelam, gunung berapi meletus di berbagai wilayah, sungai dan danau timbul lalu hilang. Perubahan ini memaksa manusia beradaptasi — yang tidak mampu, punah; yang bertahan mewariskan cara hidupnya ke generasi berikutnya."
-        },
-        {
-          "judul": "Akal sebagai Kelebihan Utama Manusia",
-          "isi": "Di antara semua makhluk hidup masa itu, manusia bukan yang paling kuat — tidak secepat kuda, tidak sekuat harimau, tidak setahan gajah. Yang membuat manusia bertahan justru akal. Dengan akalnya, manusia mengubah batu, tulang, dan kayu di sekitarnya menjadi alat yang terus berkembang mengikuti kebutuhan zaman. Manusia bahkan belajar dari bencana: letusan gunung berapi membuat tanah subur untuk lahan tanam, dan banjir yang membawa lumpur menyuburkan lahan pertanian."
-        }
-      ]
-    },
-    {
-      "id": "m2-1",
-      "urutan": 2,
-      "kode": "3.1 / PALEOLITIKUM",
-      "layerColor": "#7a5c3e",
-      "judul": "Berburu-Meramu Tingkat Sederhana",
-      "ringkasan": "Masa paling awal kehidupan manusia praaksara. Alam belum stabil, manusia bertahan dengan berburu, meramu, dan berpindah-pindah tempat.",
-      "konten": [
-        {
-          "judul": "Kehidupan di Masa Paleolitikum",
-          "isi": "Paleolitikum merupakan masa paling awal kehidupan manusia praaksara. Kondisi alam masih belum stabil sehingga manusia harus beradaptasi dengan lingkungan yang keras. Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan."
-        },
-        {
-          "judul": "Peralatan dan Cara Hidup",
-          "isi": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Cara hidup bersifat nomaden mengikuti sumber makanan, tinggal di dekat sungai, danau, atau gua, dalam kelompok kecil."
-        },
-        {
-          "judul": "Pembagian Kerja, Seni, dan Kebudayaan Indonesia",
-          "isi": "Pembagian kerja mulai terlihat: laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak. Seni berkembang lewat lukisan sederhana bertema hewan buruan. Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan (kapak penetak) dan Kebudayaan Ngandong (alat tulang dan serpih)."
-        }
-      ]
-    },
-    {
-      "id": "m2-2",
-      "urutan": 3,
-      "kode": "3.2 / Mesolitikum",
-      "layerColor": "#7a5c3e",
-      "judul": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut",
-      "ringkasan": "Pola hidup pada masa ini masih terpengaruh masa sebelumnya. Manusia masih berburu, masih meramu, masih berpindah dari satu gua ke gua lain. Tetapi ada perubahan penting: mereka mulai menetap lebih lama.",
-      "konten": [
-        {
-          "judul": "Tempat Tinggal",
-          "isi": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara."
-        },
-        {
-          "judul": "Awal Bercocok Tanam",
-          "isi": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan."
-        },
-        {
-          "judul": "Alat yang Dipakai",
-          "isi": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi."
-        },
-        {
-          "judul": "Seni Lukis Berkembang Pesat",
-          "isi": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya: menggores dinding gua dengan alat tajam, menggunakan cat berwarna merah, hitam, dan putih dari bahan alami."
-        }
-      ]
-    },
-    {
-      "id": "m2-3",
-      "urutan": 4,
-      "kode": "3.3 / Neolitikum",
-      "layerColor": "#7a5c3e",
-      "judul": "Masa Bercocok Tanam",
-      "ringkasan": "Ini adalah masa paling penting dalam sejarah manusia praaksara. Peralihan dari berburu-meramu ke bercocok tanam berlangsung lama, tetapi dampaknya mengubah segalanya. Secara arkeologis, masa ini disebut Neolitikum.",
-      "konten": [
-        {
-          "judul": "Membuka Lahan dan Pola Hunian",
-          "isi": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
-        },
-        {
-          "judul": "Gotong Royong dan Kepemimpinan",
-          "isi": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
-        },
-        {
-          "judul": "Pembagian Kerja dan Alat yang Dipakai",
-          "isi": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
-        },
-        {
-          "judul": "Sistem Kepercayaan",
-          "isi": "Kepercayaan pada roh leluhur muncul. Mereka yakin roh orang yang meninggal masih ada di sekitar. Ketika ada yang meninggal, terutama tokoh yang dituakan, diadakan upacara penguburan. Jenazah dibekali perhiasan dan benda-benda yang biasa dipakai semasa hidup, agar rohnya tidak tersesat menuju alam nenek moyang. Kepercayaan ini juga menjadi rem sosial: manusia berperilaku baik karena percaya leluhur mengawasi."
-        }
-      ]
-    },
-    {
-      "id": "m2-4-0",
-      "urutan": 5,
-      "kode": "3.4 / Peninggalan Megalitik dan Situsnya",
-      "layerColor": "#7a5c3e",
-      "judul": "Delapan Bentuk Peninggalan Megalitik",
-      "ringkasan": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Delapan bentuk peninggalan megalitik yang paling sering dijumpai di Nusantara, dari menhir sampai arca batu.",
-      "konten": [
-        {
-          "judul": "Menhir",
-          "isi": "Fungsi: penghormatan pada arwah. Deskripsi singkat: batu tegak seperti tugu, biasanya..."
-        },
-        {
-          "judul": "Dolmen",
-          "isi": "Fungsi: meja sesajen atau altar upacara. Deskripsi singkat: batu datar besar disangga beberapa..."
-        },
-        {
-          "judul": "Sarkofagus",
-          "isi": "Fungsi: peti mati dari batu utuh. Deskripsi singkat: wadah jenazah yang dipahat dari..."
-        },
-        {
-          "judul": "Kubur Berundak",
-          "isi": "Fungsi: makam berjenjang. Deskripsi singkat: susunan batu bertingkat yang..."
-        },
-        {
-          "judul": "Peti Kubur Batu",
-          "isi": "Fungsi: wadah jenazah. Deskripsi singkat: kotak batu tersusun dari..."
-        },
-        {
-          "judul": "Punden Berundak",
-          "isi": "Fungsi: tempat pemujaan. Deskripsi singkat: bangunan bertingkat mirip..."
-        },
-        {
-          "judul": "Waruga",
-          "isi": "Fungsi: kubur batu berbentuk kubus. Deskripsi singkat: batu berbentuk kubus dengan..."
-        },
-        {
-          "judul": "Arca / Patung Batu",
-          "isi": "Fungsi: perwujudan leluhur. Deskripsi singkat: patung leluhur atau hewan."
-        }
-      ]
-    },
-    {
-      "id": "m2-4-1",
-      "urutan": 6,
-      "kode": "3.4.1 / Situs Sumatra",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik Sumatra: Nias & Pasemah",
-      "ringkasan": "Dari barat Nusantara: tradisi megalitik yang masih hidup di Nias, dan patung-patung batu raksasa berumur 2.500 tahun di Pasemah, Sumatera Selatan.",
-      "konten": [
-        {
-          "judul": "Nias (Sumatera Utara)",
-          "isi": "Pulau ini menyimpan tradisi megalitik yang masih hidup sampai hari ini. Di Bawomataluo dan Hilinawalö Mazingö, kalian akan menemukan menhir dan meja batu (daro-daro) di depan rumah adat. Batu-batu itu bukan sekadar hiasan. Menhir menandai status keluarga bangsawan, sementara meja batu jadi tempat musyawarah adat. Tradisi lompat batu (fahombo) yang dulu jadi ujian ksatria masih dipraktikkan di sana (Soelaeman, 2013, hlm. 78–82)."
-        },
-        {
-          "judul": "Pasemah (Sumatera Selatan)",
-          "isi": "Di lereng Bukit Barisan, sekitar Pagar Alam dan Lahat, ditemukan patung-patung batu raksasa yang berumur sekitar 2.500 tahun. Patungnya menggambarkan manusia sedang menunggang gajah, membawa nekara, atau bergulat dengan ular. Ada juga dolmen, menhir, dan kubur batu bilik. Situs Pasemah dianggap salah satu warisan megalitik paling kaya di Sumatera (Kaudern dalam Poesponegoro & Notosusanto, 2010, hlm. 195)."
-        }
-      ]
-    },
-    {
-      "id": "m2-4-3",
-      "urutan": 7,
-      "kode": "3.4.2 / Situs Bali",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik Bali: Gilimanuk",
-      "ringkasan": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal.",
-      "konten": [
-        {
-          "judul": "Gilimanuk (Bali)",
-          "isi": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal (Soejono, 2008, hlm. 192–196)."
-        }
-      ]
-    },
-    {
-      "id": "m2-4-5",
-      "urutan": 8,
-      "kode": "3.4.3 / Situs Toraja",
-      "layerColor": "#7a5c3e",
-      "judul": "Situs Megalitik Toraja",
-      "ringkasan": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang.",
-      "konten": [
-        {
-          "judul": "Toraja",
-          "isi": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang (Waterson, 2009, hlm. 156–162)."
-        }
-      ]
-    },
-    {
-      "id": "m2-5",
-      "urutan": 9,
-      "kode": "3.5 / Sistem Kepercayaan",
-      "layerColor": "#7a5c3e",
-      "judul": "Sistem Kepercayaan: Animisme dan Dinamisme",
-      "ringkasan": "Semua peninggalan megalitik di atas tidak berdiri sendiri. Di baliknya ada sistem kepercayaan yang mendasari kenapa manusia praaksara sampai bersusah payah memindahkan batu-batu besar, mendirikan menhir setinggi tiga meter, dan mengadakan upacara panjang untuk orang mati.",
-      "konten": [
-        {
-          "judul": "Apa itu Animisme",
-          "isi": "Animisme berasal dari kata Latin anima, “roh” atau “jiwa”. Kepercayaan ini meyakini bahwa setiap benda dan makhluk di alam — manusia, hewan, tumbuhan, batu besar, gunung, sungai, bahkan angin dan hujan — memiliki roh sendiri (Koentjaraningrat, 1985, hlm. 224–226). Roh leluhur yang sudah meninggal dipercaya masih memengaruhi kehidupan: jika dihormati lewat sesajen dan upacara, ia menjaga keturunannya; jika diabaikan, ia bisa mendatangkan penyakit atau bencana. Dari kepercayaan inilah lahir tradisi seperti upacara penguburan Rambu Solo di Toraja, sesajen di pohon tua, dan menhir sebagai tempat singgah roh leluhur."
-        },
-        {
-          "judul": "Apa itu Dinamisme",
-          "isi": "Dinamisme berasal dari kata Yunani dynamis, “kekuatan” atau “daya”. Berbeda dari animisme yang percaya pada roh berkepribadian, dinamisme meyakini benda-benda tertentu — keris, batu akik, nekara perunggu, atau pusaka keluarga — mengandung kekuatan gaib tanpa kepribadian, lebih mirip energi (Soekmono, 1973, hlm. 66–70). Benda semacam ini dipercaya bisa memberi perlindungan dan kesembuhan, bahkan nekara dipercaya bisa memanggil hujan lewat bunyinya. Kepercayaan ini masih hidup lewat tradisi merawat pusaka, seperti jamasan keris di Jawa."
-        },
-        {
-          "judul": "Hubungannya dengan Peninggalan Megalitik",
-          "isi": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Menhir didirikan untuk menghormati arwah leluhur, dolmen menjadi meja sesajen, dan arca batu menggambarkan perwujudan leluhur. Upacara panjang untuk orang yang meninggal diadakan agar arwahnya selamat menuju alam leluhur. Sistem kepercayaan inilah yang mendasari semua peninggalan megalitik yang kalian pelajari sebelumnya."
-        }
-      ]
-    },
-    {
-      "id": "m2-6",
-      "urutan": 10,
-      "kode": "3.6 / Zaman Logam",
-      "layerColor": "#7a5c3e",
-      "judul": "Masa Perundagian",
-      "ringkasan": "Masa Perundagian diperkirakan adalah masa akhir dari zaman praaksara. Nama “perundagian” berasal dari kata undagi dalam bahasa Bali, yang berarti seseorang atau kelompok orang yang memiliki keterampilan khusus, misalnya membuat gerabah, perhiasan, kayu, sampan, atau batu. Secara arkeologis, masa ini disebut Zaman Logam.",
-      "konten": [
-        {
-          "judul": "Menetap dan Pembagian Kerja",
-          "isi": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
-        },
-        {
-          "judul": "Kegiatan Sehari-hari",
-          "isi": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
-        },
-        {
-          "judul": "Teknologi Logam",
-          "isi": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
-        },
-        {
-          "judul": "Kemampuan Berlayar",
-          "isi": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
-        },
-        {
-          "judul": "Seni dan Sistem Kepercayaan",
-          "isi": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
-        }
-      ]
-    },
-    {
-      "id": "m3-0",
-      "urutan": 11,
-      "kode": "4 / Ragam Temuan",
-      "layerColor": "#7a5c3e",
-      "judul": "Ragam Temuan Manusia Purba di Indonesia: Bukti, Rekonstruksi, dan Perdebatan",
-      "ringkasan": "Sebelum bertemu Meganthropus, Pithecanthropus, dan Homo Sapiens satu per satu, kenali dulu bagaimana bukti mereka ditemukan, dibaca, dan diperdebatkan para ahli.",
-      "konten": [
-        {
-          "judul": "Meja Fosil Sangiran",
-          "isi": "Di Museum Sangiran, ribuan fosil dipajang dalam meja-meja kaca: rahang dan gigi Meganthropus, tengkorak Pithecanthropus, tulang gajah purba, sampai cangkang kerang dari danau purba yang pernah menutupi kawasan ini. Setiap fosil diberi label lokasi dan lapisan tanah tempat ia ditemukan, karena posisi itulah yang menentukan usia perkiraannya."
-        },
-        {
-          "judul": "Forensik Tengkorak",
-          "isi": "Ahli paleoantropologi membaca tengkorak seperti detektif membaca sidik jari. Ketebalan tulang alis, kemiringan dahi, dan volume rongga otak dipakai untuk memperkirakan usia individu dan pola makannya. Dari serpihan tengkorak yang sering tidak utuh, mereka merekonstruksi wajah manusia purba secara digital."
-        },
-        {
-          "judul": "Homo erectus Trinil",
-          "isi": "Di tepi Bengawan Solo, Trinil, Eugène Dubois menggali selama bertahun-tahun sebelum menemukan tutup tengkorak dan tulang paha Pithecanthropus erectus pada 1891. Situs ini kemudian jadi rujukan dunia untuk memahami evolusi manusia berjalan tegak, dan namanya diabadikan sebagai lokasi tipe spesies Homo erectus."
-        },
-        {
-          "judul": "Berjalan Tegak",
-          "isi": "Kemampuan berjalan tegak dengan dua kaki (bipedalisme) dibaca dari bentuk tulang paha, panggul, dan posisi foramen magnum, lubang tempat tulang belakang masuk ke tengkorak. Pada manusia yang berjalan tegak, foramen magnum terletak di bawah tengkorak, bukan di belakang seperti pada kera yang merangkak."
-        },
-        {
-          "judul": "Stratigrafi Sangiran",
-          "isi": "Lapisan tanah Sangiran tersusun dari tiga formasi utama: Pucangan (tertua, berwarna hitam kebiruan), Kabuh (kuning kecokelatan, tempat sebagian besar fosil manusia ditemukan), dan Notopuro (paling atas). Semakin dalam lapisan tempat fosil ditemukan, semakin tua usianya, prinsip inilah yang jadi dasar penanggalan relatif di Sangiran (Widianto & Simanjuntak, 2009)."
-        },
-        {
-          "judul": "Ekosistem Jawa Pleistosen",
-          "isi": "Jutaan tahun lalu, Jawa purba adalah padang rumput terbuka dengan sungai besar dan danau. Di sana hidup berdampingan gajah purba (Stegodon), badak, kerbau liar, rusa, dan buaya. Manusia purba berbagi ruang hidup dengan hewan-hewan raksasa ini, dan fosil mereka sering ditemukan bercampur dalam satu lapisan tanah yang sama."
-        },
-        {
-          "judul": "Alat Batu dan Jejak Pakai",
-          "isi": "Alat batu tidak dibuat asal jadi. Lewat pengamatan mikroskopis pada bekas serpihan dan goresan di permukaannya, yang disebut traseologi atau use-wear analysis, arkeolog bisa menebak alat itu dipakai untuk apa: memotong daging, mengupas umbi, atau mengikis kulit kayu."
-        },
-        {
-          "judul": "Ekskavasi Digital",
-          "isi": "Penggalian arkeologi masa kini tidak lagi hanya mengandalkan cangkul dan kuas. Pemindaian 3D, fotogrametri, dan pemetaan GIS dipakai untuk mendokumentasikan posisi persis setiap fosil sebelum diangkat, sehingga informasi lapisan dan konteks temuannya tidak hilang meski fosilnya sudah dipindahkan ke museum."
-        },
-        {
-          "judul": "Homo floresiensis",
-          "isi": "Pada 2003, di Gua Liang Bua, Pulau Flores, ditemukan kerangka manusia purba berukuran sangat kecil, tinggi sekitar satu meter dengan volume otak sekitar 380 cc, dijuluki manusia hobbit. Spesies ini diberi nama Homo floresiensis dan diperkirakan masih hidup sampai sekitar 50.000 tahun lalu, jauh lebih baru dari Meganthropus maupun Pithecanthropus."
-        },
-        {
-          "judul": "Museum Bukti dan Hipotesis",
-          "isi": "Sains tidak pernah selesai. Setiap fosil baru bisa mengubah atau memperkuat hipotesis sebelumnya. Sebagian ahli menganggap Homo floresiensis spesies tersendiri, sementara yang lain menduga ia manusia modern yang mengalami kekerdilan akibat isolasi di pulau kecil. Museum memajang kedua sisi perdebatan ini, karena begitulah sains bekerja: teori terbaik hari ini bisa direvisi besok."
-        }
-      ]
-    },
-    {
-      "id": "m3-1",
-      "urutan": 12,
-      "kode": "4.1 / Manusia Raksasa Dari Jawa",
-      "judul": "Meganthropus Paleojavanicus",
-      "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
-      "layerColor": "#8B5E3C",
-      "konten": [
-        {
-          "judul": "Penemuan",
-          "isi": "Sekitar 1,5 hingga 2 juta tahun yang lalu, di wilayah yang kini dikenal sebagai Sangiran, hidup manusia purba yang disebut Meganthropus Paleojavanicus. Nama tersebut berasal dari kata mega (besar), anthropus (manusia), paleo (tua), dan javanicus (dari Jawa). Fosil berupa rahang bawah dan gigi geraham berukuran sangat besar ditemukan oleh Gustav Heinrich Ralph von Koenigswald pada tahun 1936–1941 di Sangiran, Jawa Tengah."
-        },
-        {
-          "judul": "Ciri Fisik",
-          "isi": "Meganthropus diperkirakan memiliki tubuh yang tegap, berotot, dan tinggi sekitar 1,75 meter, meskipun perkiraan ini masih bersifat spekulatif karena didasarkan pada ukuran rahang. Ciri lainnya adalah rahang yang sangat besar dan kuat, tidak memiliki dagu seperti manusia modern, tulang pipi yang tebal, tulang kening yang menonjol, serta postur tubuh yang agak membungkuk."
-        },
-        {
-          "judul": "Cara Hidup",
-          "isi": "Meganthropus hidup dengan memanfaatkan sumber daya alam yang tersedia. Makanan utamanya berupa tumbuh-tumbuhan berserat, umbi-umbian, dan buah-buahan liar. Rahang yang besar dan gigi yang kuat membantunya mengunyah makanan yang keras. Hingga kini belum ditemukan bukti yang meyakinkan bahwa Meganthropus telah membuat peralatan yang rumit, sehingga para ahli masih memperdebatkan tingkat perkembangan kebudayaannya."
-        },
-        {
-          "judul": "Fakta Menarik",
-          "isi": "Karena fosil yang ditemukan hanya berupa fragmen rahang dan gigi, banyak informasi mengenai Meganthropus masih didasarkan pada hasil interpretasi para ahli. Oleh sebab itu, status dan hubungan Meganthropus dengan manusia purba lainnya masih menjadi bahan penelitian hingga sekarang."
-        }
-      ]
-    },
-    {
-      "id": "m3-2",
-      "urutan": 13,
-      "kode": "4.2 / PITHECANTHROPUS",
-      "layerColor": "#7a6a52",
-      "judul": "Pithecanthropus Erectus",
-      "ringkasan": "Manusia purba yang ditemukan Eugène Dubois tahun 1891 di Trinil - salah satu 'missing link' paling terkenal dalam sejarah evolusi manusia.",
-      "konten": [
-        {
-          "judul": "Penemuan yang Menggegerkan Dunia",
-          "isi": "Sekitar 1 juta tahun lalu, ketika Meganthropus mulai menghilang, muncul jenis manusia purba yang lebih maju. Namanya Pithecanthropus erectus, artinya “manusia kera yang berjalan tegak”. Ia ditemukan pertama kali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Temuan Dubois menggegerkan dunia sains akhir abad ke-19 karena Pithecanthropus dianggap salah satu “missing link” antara kera dan manusia (Simanjuntak, 2016, hlm. 71–75)."
-        },
-        {
-          "judul": "Kebudayaan Pacitan dan Variasinya di Indonesia",
-          "isi": "Pithecanthropus dianggap sebagai pembuat Kebudayaan Pacitan, dengan alat batu kasar seperti kapak genggam dan kapak perimbas. Jenis Pithecanthropus di Indonesia bervariasi. Selain Pithecanthropus erectus di Trinil, ada juga Pithecanthropus mojokertensis (ditemukan di Mojokerto) dan Pithecanthropus soloensis yang ditemukan di daerah Ngandong dan sekitar Bengawan Solo (Poesponegoro & Notosusanto, 2010, hlm. 118–124)."
-        }
-      ]
-    },
-    {
-      "id": "m3-3",
-      "urutan": 14,
-      "kode": "4.3 / Homo Sapiens",
-      "layerColor": "#7a5c3e",
-      "judul": "Homo Sapiens",
-      "ringkasan": "Sekitar 40.000 sampai 60.000 tahun lalu, jenis manusia yang wajahnya lebih mirip kalian mulai menghuni Nusantara. Namanya Homo sapiens, artinya “manusia yang bijak”. Ini adalah nenek moyang langsung kalian.",
-      "konten": [
-        {
-          "judul": "Temuan Penting di Indonesia",
-          "isi": "Di Indonesia, ada beberapa temuan penting jenis Homo sapiens purba. Homo wajakensis, digali oleh B.D. van Rietschoten tahun 1889 di daerah Wajak, Tulungagung, Jawa Timur. Homo soloensis, ditemukan di daerah Ngandong, di lembah Bengawan Solo."
-        },
-        {
-          "judul": "Ciri Fisik",
-          "isi": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
-        },
-        {
-          "judul": "Kebudayaan",
-          "isi": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "m1-praaksara": [
+      {
+        "id": "m1-praaksara",
+        "urutan": 0,
+        "kode": "1 / PRAAKSARA",
+        "layerColor": "#5a4632",
+        "judul": "Praaksara: Kehidupan Sebelum Ada Tulisan",
+        "ringkasan": "Bayangkan menggali kebun dan cangkul membentur batu berbentuk aneh, tajam di satu sisi. Tanpa tulisan, bagaimana kita tahu itu buatan manusia, berapa umurnya, dan siapa yang pernah menggenggamnya?",
+        "konten": [
+          {
+            "judul": "Sebuah Teka-Teki dari Tanah",
+            "isi": "Bayangkan kalian sedang menggali kebun di halaman rumah. Cangkul kalian membentur sesuatu yang keras. Setelah dibersihkan, muncul batu berbentuk aneh: pipih, tajam di satu sisi, mirip kapak tanpa tangkai. Batu itu jelas bukan buatan pabrik, tidak ada cap merek maupun tulisan yang menandai pembuatnya. Sebelum lanjut, coba jawab tiga pertanyaan: dari mana kalian tahu benda itu buatan manusia bukan kebetulan alam, berapa umurnya dan siapa yang pertama kali menggenggamnya, dan kalau tidak ada catatan tertulis, bukti apa yang bisa dipercaya?"
+          },
+          {
+            "judul": "Apa itu Praaksara",
+            "isi": "Praaksara berarti \"sebelum tulisan\". Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15)."
+          },
+          {
+            "judul": "Bukti Tanpa Tulisan",
+            "isi": "Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "materi": [
+      {
+        "id": "m1",
+        "urutan": 1,
+        "kode": "2 / PERIODISASI",
+        "layerColor": "#8a7256",
+        "judul": "Periodisasi Geologi: Bumi Sebelum Manusia",
+        "ringkasan": "Bumi jauh lebih tua dari manusia. Empat zaman geologi menjelaskan bagaimana bumi bersiap menjadi rumah bagi kehidupan.",
+        "konten": [
+          {
+            "judul": "Apa itu Praaksara",
+            "isi": "Praaksara berarti “sebelum tulisan”. Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15). Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
+          },
+          {
+            "judul": "Empat Zaman Geologi",
+            "isi": "Berdasarkan geologi, sejarah bumi dibagi ke dalam empat zaman. Arkaekum/Arkeozoikum (± 2.500 juta tahun lalu): zaman tertua, bumi masih sangat panas dan belum stabil, belum ada kehidupan. Paleozoikum/Zaman Primer (± 340 juta tahun lalu): tanda kehidupan mulai muncul — mikroorganisme, ikan, amfibi, reptil awal, invertebrata. Mesozoikum/Zaman Sekunder (± 140 juta tahun lalu): zaman reptil raksasa (dinosaurus), burung dan mamalia mulai muncul. Neozoikum/Zaman Hidup Baru (60 juta tahun lalu hingga kini): terbagi Tersier (mamalia menyusui berkembang pesat) dan Kuartier, zaman terpenting karena tanda kehidupan manusia mulai muncul sekitar 3 juta tahun lalu."
+          },
+          {
+            "judul": "Bumi yang Tidak Tenang",
+            "isi": "Ketika manusia mulai muncul di penghujung Neozoikum, permukaan bumi tidak tenang: es meluas menutupi sebagian muka bumi (zaman glasial), iklim berubah drastis, permukaan air laut naik-turun, daratan baru muncul dan tenggelam, gunung berapi meletus di berbagai wilayah, sungai dan danau timbul lalu hilang. Perubahan ini memaksa manusia beradaptasi — yang tidak mampu, punah; yang bertahan mewariskan cara hidupnya ke generasi berikutnya."
+          },
+          {
+            "judul": "Akal sebagai Kelebihan Utama Manusia",
+            "isi": "Di antara semua makhluk hidup masa itu, manusia bukan yang paling kuat — tidak secepat kuda, tidak sekuat harimau, tidak setahan gajah. Yang membuat manusia bertahan justru akal. Dengan akalnya, manusia mengubah batu, tulang, dan kayu di sekitarnya menjadi alat yang terus berkembang mengikuti kebutuhan zaman. Manusia bahkan belajar dari bencana: letusan gunung berapi membuat tanah subur untuk lahan tanam, dan banjir yang membawa lumpur menyuburkan lahan pertanian."
+          }
+        ]
+      },
+      {
+        "id": "m2-1",
+        "urutan": 2,
+        "kode": "3.1 / PALEOLITIKUM",
+        "layerColor": "#7a5c3e",
+        "judul": "Berburu-Meramu Tingkat Sederhana",
+        "ringkasan": "Masa paling awal kehidupan manusia praaksara. Alam belum stabil, manusia bertahan dengan berburu, meramu, dan berpindah-pindah tempat.",
+        "konten": [
+          {
+            "judul": "Kehidupan di Masa Paleolitikum",
+            "isi": "Paleolitikum merupakan masa paling awal kehidupan manusia praaksara. Kondisi alam masih belum stabil sehingga manusia harus beradaptasi dengan lingkungan yang keras. Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan."
+          },
+          {
+            "judul": "Peralatan dan Cara Hidup",
+            "isi": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Cara hidup bersifat nomaden mengikuti sumber makanan, tinggal di dekat sungai, danau, atau gua, dalam kelompok kecil."
+          },
+          {
+            "judul": "Pembagian Kerja, Seni, dan Kebudayaan Indonesia",
+            "isi": "Pembagian kerja mulai terlihat: laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak. Seni berkembang lewat lukisan sederhana bertema hewan buruan. Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan (kapak penetak) dan Kebudayaan Ngandong (alat tulang dan serpih)."
+          }
+        ]
+      },
+      {
+        "id": "m2-2",
+        "urutan": 3,
+        "kode": "3.2 / Mesolitikum",
+        "layerColor": "#7a5c3e",
+        "judul": "Masa Berburu dan Mengumpulkan Makanan Tingkat Lanjut",
+        "ringkasan": "Pola hidup pada masa ini masih terpengaruh masa sebelumnya. Manusia masih berburu, masih meramu, masih berpindah dari satu gua ke gua lain. Tetapi ada perubahan penting: mereka mulai menetap lebih lama.",
+        "konten": [
+          {
+            "judul": "Tempat Tinggal",
+            "isi": "Mereka tinggal cukup lama di gua-gua yang disebut abris sous roche dan di cerukan di tepi pantai. Pilihan lokasi selalu dekat sumber air. Di tepi pantai, mereka meninggalkan tumpukan sampah dapur berupa kulit kerang yang menggunung. Timbunan ini disebut kjokkenmoddinger dan menjadi salah satu penanda arkeologis paling khas dari Mesolitikum di Indonesia, terutama di pesisir timur Sumatera Utara."
+          },
+          {
+            "judul": "Awal Bercocok Tanam",
+            "isi": "Meskipun berburu dan meramu masih dominan, tanda-tanda awal bercocok tanam sudah muncul. Mereka mencoba menanam padi, umbi-umbian, dan kacang-kacangan. Mereka juga mulai menjinakkan hewan sebagai cikal bakal peternakan."
+          },
+          {
+            "judul": "Alat yang Dipakai",
+            "isi": "Alat-alatnya masih dari batu, tulang, tanduk, kulit kerang, dan bambu. Bedanya, permukaannya sudah lebih halus dibanding masa Paleolitikum. Muncul pula alat-alat baru seperti kapak genggam Sumatera (Sumatralith), cungkil dan sudip dari bambu untuk mencungkil serta membersihkan umbi."
+          },
+          {
+            "judul": "Seni Lukis Berkembang Pesat",
+            "isi": "Manusia mulai melukis di dinding gua. Objeknya menggambarkan kehidupan sosial, ekonomi, dan kepercayaan mereka. Teknik lukisnya: menggores dinding gua dengan alat tajam, menggunakan cat berwarna merah, hitam, dan putih dari bahan alami."
+          }
+        ]
+      },
+      {
+        "id": "m2-3",
+        "urutan": 4,
+        "kode": "3.3 / Neolitikum",
+        "layerColor": "#7a5c3e",
+        "judul": "Masa Bercocok Tanam",
+        "ringkasan": "Ini adalah masa paling penting dalam sejarah manusia praaksara. Peralihan dari berburu-meramu ke bercocok tanam berlangsung lama, tetapi dampaknya mengubah segalanya. Secara arkeologis, masa ini disebut Neolitikum.",
+        "konten": [
+          {
+            "judul": "Membuka Lahan dan Pola Hunian",
+            "isi": "Manusia mulai membuka lahan dengan cara menebang hutan dan membakar semak (slash and burn). Setelah lahan siap, mereka menanam tanaman. Berburu dan mengumpulkan makanan masih dijalankan, tapi porsinya berkurang. Mulai muncul perkampungan. Manusia menetap secara berkelompok dalam beberapa keluarga. Populasi meningkat pesat karena pasokan makanan lebih stabil. Lokasi perkampungan biasanya berada di sekitar sumber air seperti pinggiran sungai, danau, dan tepian pantai, atau di dataran tinggi seperti bukit-bukit kecil dengan sumber air di sekitarnya. Dataran tinggi dipilih untuk berlindung dari serangan musuh dan hewan buas."
+          },
+          {
+            "judul": "Gotong Royong dan Kepemimpinan",
+            "isi": "Kehidupan perkampungan menumbuhkan tradisi gotong royong. Mereka bekerja bersama menebang pohon, membakar semak belukar, menabur benih, memanen, membuat gerabah, berburu, menangkap ikan, dan bertukar barang. Pemimpin ditunjuk dari orang paling tua dan berwibawa. Dari sinilah tradisi menghormati orang tua sebagai pemimpin lahir. Kalian yang menghormati orang tua di rumah sebenarnya sedang melanjutkan tradisi yang sudah berusia ribuan tahun."
+          },
+          {
+            "judul": "Pembagian Kerja dan Alat yang Dipakai",
+            "isi": "Pembagian kerja semakin jelas. Laki-laki mengerjakan tugas berat seperti berburu, menangkap ikan di lautan lepas, dan membangun rumah dari kayu dan bambu. Perempuan menangkap ikan di sekitar rumah, membuat gerabah, menabur benih di ladang, merawat rumah, dan mendidik anak-anak sambil melibatkan mereka dalam pekerjaan sehari-hari. Pengakuan atas peran perempuan dalam memenuhi kebutuhan keluarga sudah terbentuk di masa ini. Teknologi juga melompat maju. Alat batu sudah diasah halus, tidak lagi kasar seperti masa sebelumnya. Alat khas Neolitikum di Indonesia antara lain beliung persegi, kapak lonjong, kapak batu, mata panah dan mata tombak, alat obsidian atau batu kecubung, gerabah dengan teknik pembuatan sederhana, serta perhiasan dari batu dan kulit kerang seperti gelang."
+          },
+          {
+            "judul": "Sistem Kepercayaan",
+            "isi": "Kepercayaan pada roh leluhur muncul. Mereka yakin roh orang yang meninggal masih ada di sekitar. Ketika ada yang meninggal, terutama tokoh yang dituakan, diadakan upacara penguburan. Jenazah dibekali perhiasan dan benda-benda yang biasa dipakai semasa hidup, agar rohnya tidak tersesat menuju alam nenek moyang. Kepercayaan ini juga menjadi rem sosial: manusia berperilaku baik karena percaya leluhur mengawasi."
+          }
+        ]
+      },
+      {
+        "id": "m2-4-0",
+        "urutan": 5,
+        "kode": "3.4 / Peninggalan Megalitik dan Situsnya",
+        "layerColor": "#7a5c3e",
+        "judul": "Delapan Bentuk Peninggalan Megalitik",
+        "ringkasan": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Delapan bentuk peninggalan megalitik yang paling sering dijumpai di Nusantara, dari menhir sampai arca batu.",
+        "konten": [
+          {
+            "judul": "Menhir",
+            "isi": "Fungsi: penghormatan pada arwah. Deskripsi singkat: batu tegak seperti tugu, biasanya..."
+          },
+          {
+            "judul": "Dolmen",
+            "isi": "Fungsi: meja sesajen atau altar upacara. Deskripsi singkat: batu datar besar disangga beberapa..."
+          },
+          {
+            "judul": "Sarkofagus",
+            "isi": "Fungsi: peti mati dari batu utuh. Deskripsi singkat: wadah jenazah yang dipahat dari..."
+          },
+          {
+            "judul": "Kubur Berundak",
+            "isi": "Fungsi: makam berjenjang. Deskripsi singkat: susunan batu bertingkat yang..."
+          },
+          {
+            "judul": "Peti Kubur Batu",
+            "isi": "Fungsi: wadah jenazah. Deskripsi singkat: kotak batu tersusun dari..."
+          },
+          {
+            "judul": "Punden Berundak",
+            "isi": "Fungsi: tempat pemujaan. Deskripsi singkat: bangunan bertingkat mirip..."
+          },
+          {
+            "judul": "Waruga",
+            "isi": "Fungsi: kubur batu berbentuk kubus. Deskripsi singkat: batu berbentuk kubus dengan..."
+          },
+          {
+            "judul": "Arca / Patung Batu",
+            "isi": "Fungsi: perwujudan leluhur. Deskripsi singkat: patung leluhur atau hewan."
+          }
+        ]
+      },
+      {
+        "id": "m2-4-1",
+        "urutan": 6,
+        "kode": "3.4.1 / Situs Sumatra",
+        "layerColor": "#7a5c3e",
+        "judul": "Situs Megalitik Sumatra: Nias & Pasemah",
+        "ringkasan": "Dari barat Nusantara: tradisi megalitik yang masih hidup di Nias, dan patung-patung batu raksasa berumur 2.500 tahun di Pasemah, Sumatera Selatan.",
+        "konten": [
+          {
+            "judul": "Nias (Sumatera Utara)",
+            "isi": "Pulau ini menyimpan tradisi megalitik yang masih hidup sampai hari ini. Di Bawomataluo dan Hilinawalö Mazingö, kalian akan menemukan menhir dan meja batu (daro-daro) di depan rumah adat. Batu-batu itu bukan sekadar hiasan. Menhir menandai status keluarga bangsawan, sementara meja batu jadi tempat musyawarah adat. Tradisi lompat batu (fahombo) yang dulu jadi ujian ksatria masih dipraktikkan di sana (Soelaeman, 2013, hlm. 78–82)."
+          },
+          {
+            "judul": "Pasemah (Sumatera Selatan)",
+            "isi": "Di lereng Bukit Barisan, sekitar Pagar Alam dan Lahat, ditemukan patung-patung batu raksasa yang berumur sekitar 2.500 tahun. Patungnya menggambarkan manusia sedang menunggang gajah, membawa nekara, atau bergulat dengan ular. Ada juga dolmen, menhir, dan kubur batu bilik. Situs Pasemah dianggap salah satu warisan megalitik paling kaya di Sumatera (Kaudern dalam Poesponegoro & Notosusanto, 2010, hlm. 195)."
+          }
+        ]
+      },
+      {
+        "id": "m2-4-3",
+        "urutan": 7,
+        "kode": "3.4.2 / Situs Bali",
+        "layerColor": "#7a5c3e",
+        "judul": "Situs Megalitik Bali: Gilimanuk",
+        "ringkasan": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal.",
+        "konten": [
+          {
+            "judul": "Gilimanuk (Bali)",
+            "isi": "Situs ini menyimpan ratusan kubur batu dan sarkofagus khas Bali dengan hiasan kepala manusia dan hewan. Bekal kubur berupa manik-manik dan perhiasan logam menunjukkan bahwa Gilimanuk adalah situs peralihan antara Neolitikum akhir dan Perundagian awal (Soejono, 2008, hlm. 192–196)."
+          }
+        ]
+      },
+      {
+        "id": "m2-4-5",
+        "urutan": 8,
+        "kode": "3.4.3 / Situs Toraja",
+        "layerColor": "#7a5c3e",
+        "judul": "Situs Megalitik Toraja",
+        "ringkasan": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang.",
+        "konten": [
+          {
+            "judul": "Toraja",
+            "isi": "Tradisi megalitik Toraja adalah salah satu yang paling terkenal di dunia. Batu Simbuang didirikan pada upacara pemakaman Rambu Solo untuk mengenang orang yang meninggal. Makam-makam batu di Londa dan Kete Kesu berupa lubang batu yang dipahat di tebing, tempat menyimpan tau-tau (patung kayu yang menyerupai orang yang meninggal). Praktik penguburan dua tahap yang khas Perundagian masih hidup di Toraja sampai sekarang (Waterson, 2009, hlm. 156–162)."
+          }
+        ]
+      },
+      {
+        "id": "m2-5",
+        "urutan": 9,
+        "kode": "3.5 / Sistem Kepercayaan",
+        "layerColor": "#7a5c3e",
+        "judul": "Sistem Kepercayaan: Animisme dan Dinamisme",
+        "ringkasan": "Semua peninggalan megalitik di atas tidak berdiri sendiri. Di baliknya ada sistem kepercayaan yang mendasari kenapa manusia praaksara sampai bersusah payah memindahkan batu-batu besar, mendirikan menhir setinggi tiga meter, dan mengadakan upacara panjang untuk orang mati.",
+        "konten": [
+          {
+            "judul": "Apa itu Animisme",
+            "isi": "Animisme berasal dari kata Latin anima, “roh” atau “jiwa”. Kepercayaan ini meyakini bahwa setiap benda dan makhluk di alam — manusia, hewan, tumbuhan, batu besar, gunung, sungai, bahkan angin dan hujan — memiliki roh sendiri (Koentjaraningrat, 1985, hlm. 224–226). Roh leluhur yang sudah meninggal dipercaya masih memengaruhi kehidupan: jika dihormati lewat sesajen dan upacara, ia menjaga keturunannya; jika diabaikan, ia bisa mendatangkan penyakit atau bencana. Dari kepercayaan inilah lahir tradisi seperti upacara penguburan Rambu Solo di Toraja, sesajen di pohon tua, dan menhir sebagai tempat singgah roh leluhur."
+          },
+          {
+            "judul": "Apa itu Dinamisme",
+            "isi": "Dinamisme berasal dari kata Yunani dynamis, “kekuatan” atau “daya”. Berbeda dari animisme yang percaya pada roh berkepribadian, dinamisme meyakini benda-benda tertentu — keris, batu akik, nekara perunggu, atau pusaka keluarga — mengandung kekuatan gaib tanpa kepribadian, lebih mirip energi (Soekmono, 1973, hlm. 66–70). Benda semacam ini dipercaya bisa memberi perlindungan dan kesembuhan, bahkan nekara dipercaya bisa memanggil hujan lewat bunyinya. Kepercayaan ini masih hidup lewat tradisi merawat pusaka, seperti jamasan keris di Jawa."
+          },
+          {
+            "judul": "Hubungannya dengan Peninggalan Megalitik",
+            "isi": "Kepercayaan pada leluhur melahirkan tradisi mendirikan bangunan batu besar. Menhir didirikan untuk menghormati arwah leluhur, dolmen menjadi meja sesajen, dan arca batu menggambarkan perwujudan leluhur. Upacara panjang untuk orang yang meninggal diadakan agar arwahnya selamat menuju alam leluhur. Sistem kepercayaan inilah yang mendasari semua peninggalan megalitik yang kalian pelajari sebelumnya."
+          }
+        ]
+      },
+      {
+        "id": "m2-6",
+        "urutan": 10,
+        "kode": "3.6 / Zaman Logam",
+        "layerColor": "#7a5c3e",
+        "judul": "Masa Perundagian",
+        "ringkasan": "Masa Perundagian diperkirakan adalah masa akhir dari zaman praaksara. Nama “perundagian” berasal dari kata undagi dalam bahasa Bali, yang berarti seseorang atau kelompok orang yang memiliki keterampilan khusus, misalnya membuat gerabah, perhiasan, kayu, sampan, atau batu. Secara arkeologis, masa ini disebut Zaman Logam.",
+        "konten": [
+          {
+            "judul": "Menetap dan Pembagian Kerja",
+            "isi": "Manusia sudah benar-benar berhenti berpindah dan menetap di perkampungan serta desa. Kegiatan sehari-hari seperti bertani dan berternak diatur secara gotong royong dan hasilnya dibagi adil. Yang membedakan masa ini dengan Neolitikum, pembagian kerja mulai berbasis keahlian: ada yang khusus membuat gerabah, perhiasan, mengecor logam, atau membuat perahu. Manusia mulai punya profesi."
+          },
+          {
+            "judul": "Kegiatan Sehari-hari",
+            "isi": "Berburu masih dilakukan untuk menambah kebutuhan sehari-hari, memakai tombak, mata panah, dan jerat dari rotan serta bambu. Pertanian menjadi pekerjaan tetap dengan alat dari logam. Irigasi mulai dibangun agar air bisa dialirkan ke ladang. Peternakan juga berkembang: unggas dan kerbau untuk daging, sedangkan kuda dan anjing untuk berburu dan mengangkut hasil pertanian."
+          },
+          {
+            "judul": "Teknologi Logam",
+            "isi": "Lompatan teknologi terbesar di masa praaksara. Manusia mengenal peleburan, pencampuran, penempaan, dan pencetakan logam. Emas dan tembaga menjadi favorit karena titik leburnya tidak terlalu tinggi. Lahir berbagai perhiasan dan alat upacara, termasuk nekara perunggu. Yang paling terkenal, Nekara Bulan Pejeng dari Bali, nekara terbesar di Asia Tenggara, dengan tinggi sekitar seratus delapan puluh enam sentimeter dan garis tengah seratus enam puluh sentimeter. Nekara ini dipercaya punya kekuatan gaib untuk memanggil hujan."
+          },
+          {
+            "judul": "Kemampuan Berlayar",
+            "isi": "Manusia Perundagian sudah mahir berlayar. Perahu bercadik menjadi teknologi kunci yang memungkinkan pelayaran jarak jauh. Mereka berdagang dengan wilayah lain melintasi lautan luas memakai sistem barter. Barang yang banyak dicari antara lain nekara perunggu, perhiasan logam, dan manik-manik, yang dipercaya punya kekuatan magis dan bernilai khusus."
+          },
+          {
+            "judul": "Seni dan Sistem Kepercayaan",
+            "isi": "Seni ukir berkembang dengan pola geometris yang khas, disertai gambar dinamis dan motif simbolis. Kepercayaan pada arwah leluhur semakin kuat dan dihormati lewat upacara. Penguburan dilakukan dengan dua cara: langsung dan tidak langsung. Praktik penguburan dua tahap ini masih hidup di tengah masyarakat Toraja dalam upacara Rambu Solo."
+          }
+        ]
+      },
+      {
+        "id": "m3-0",
+        "urutan": 11,
+        "kode": "4 / Ragam Temuan",
+        "layerColor": "#7a5c3e",
+        "judul": "Ragam Temuan Manusia Purba di Indonesia: Bukti, Rekonstruksi, dan Perdebatan",
+        "ringkasan": "Sebelum bertemu Meganthropus, Pithecanthropus, dan Homo Sapiens satu per satu, kenali dulu bagaimana bukti mereka ditemukan, dibaca, dan diperdebatkan para ahli.",
+        "konten": [
+          {
+            "judul": "Meja Fosil Sangiran",
+            "isi": "Di Museum Sangiran, ribuan fosil dipajang dalam meja-meja kaca: rahang dan gigi Meganthropus, tengkorak Pithecanthropus, tulang gajah purba, sampai cangkang kerang dari danau purba yang pernah menutupi kawasan ini. Setiap fosil diberi label lokasi dan lapisan tanah tempat ia ditemukan, karena posisi itulah yang menentukan usia perkiraannya."
+          },
+          {
+            "judul": "Forensik Tengkorak",
+            "isi": "Ahli paleoantropologi membaca tengkorak seperti detektif membaca sidik jari. Ketebalan tulang alis, kemiringan dahi, dan volume rongga otak dipakai untuk memperkirakan usia individu dan pola makannya. Dari serpihan tengkorak yang sering tidak utuh, mereka merekonstruksi wajah manusia purba secara digital."
+          },
+          {
+            "judul": "Homo erectus Trinil",
+            "isi": "Di tepi Bengawan Solo, Trinil, Eugène Dubois menggali selama bertahun-tahun sebelum menemukan tutup tengkorak dan tulang paha Pithecanthropus erectus pada 1891. Situs ini kemudian jadi rujukan dunia untuk memahami evolusi manusia berjalan tegak, dan namanya diabadikan sebagai lokasi tipe spesies Homo erectus."
+          },
+          {
+            "judul": "Berjalan Tegak",
+            "isi": "Kemampuan berjalan tegak dengan dua kaki (bipedalisme) dibaca dari bentuk tulang paha, panggul, dan posisi foramen magnum, lubang tempat tulang belakang masuk ke tengkorak. Pada manusia yang berjalan tegak, foramen magnum terletak di bawah tengkorak, bukan di belakang seperti pada kera yang merangkak."
+          },
+          {
+            "judul": "Stratigrafi Sangiran",
+            "isi": "Lapisan tanah Sangiran tersusun dari tiga formasi utama: Pucangan (tertua, berwarna hitam kebiruan), Kabuh (kuning kecokelatan, tempat sebagian besar fosil manusia ditemukan), dan Notopuro (paling atas). Semakin dalam lapisan tempat fosil ditemukan, semakin tua usianya, prinsip inilah yang jadi dasar penanggalan relatif di Sangiran (Widianto & Simanjuntak, 2009)."
+          },
+          {
+            "judul": "Ekosistem Jawa Pleistosen",
+            "isi": "Jutaan tahun lalu, Jawa purba adalah padang rumput terbuka dengan sungai besar dan danau. Di sana hidup berdampingan gajah purba (Stegodon), badak, kerbau liar, rusa, dan buaya. Manusia purba berbagi ruang hidup dengan hewan-hewan raksasa ini, dan fosil mereka sering ditemukan bercampur dalam satu lapisan tanah yang sama."
+          },
+          {
+            "judul": "Alat Batu dan Jejak Pakai",
+            "isi": "Alat batu tidak dibuat asal jadi. Lewat pengamatan mikroskopis pada bekas serpihan dan goresan di permukaannya, yang disebut traseologi atau use-wear analysis, arkeolog bisa menebak alat itu dipakai untuk apa: memotong daging, mengupas umbi, atau mengikis kulit kayu."
+          },
+          {
+            "judul": "Ekskavasi Digital",
+            "isi": "Penggalian arkeologi masa kini tidak lagi hanya mengandalkan cangkul dan kuas. Pemindaian 3D, fotogrametri, dan pemetaan GIS dipakai untuk mendokumentasikan posisi persis setiap fosil sebelum diangkat, sehingga informasi lapisan dan konteks temuannya tidak hilang meski fosilnya sudah dipindahkan ke museum."
+          },
+          {
+            "judul": "Homo floresiensis",
+            "isi": "Pada 2003, di Gua Liang Bua, Pulau Flores, ditemukan kerangka manusia purba berukuran sangat kecil, tinggi sekitar satu meter dengan volume otak sekitar 380 cc, dijuluki manusia hobbit. Spesies ini diberi nama Homo floresiensis dan diperkirakan masih hidup sampai sekitar 50.000 tahun lalu, jauh lebih baru dari Meganthropus maupun Pithecanthropus."
+          },
+          {
+            "judul": "Museum Bukti dan Hipotesis",
+            "isi": "Sains tidak pernah selesai. Setiap fosil baru bisa mengubah atau memperkuat hipotesis sebelumnya. Sebagian ahli menganggap Homo floresiensis spesies tersendiri, sementara yang lain menduga ia manusia modern yang mengalami kekerdilan akibat isolasi di pulau kecil. Museum memajang kedua sisi perdebatan ini, karena begitulah sains bekerja: teori terbaik hari ini bisa direvisi besok."
+          }
+        ]
+      },
+      {
+        "id": "m3-1",
+        "urutan": 12,
+        "kode": "4.1 / Manusia Raksasa Dari Jawa",
+        "judul": "Meganthropus Paleojavanicus",
+        "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
+        "layerColor": "#8B5E3C",
+        "konten": [
+          {
+            "judul": "Penemuan",
+            "isi": "Sekitar 1,5 hingga 2 juta tahun yang lalu, di wilayah yang kini dikenal sebagai Sangiran, hidup manusia purba yang disebut Meganthropus Paleojavanicus. Nama tersebut berasal dari kata mega (besar), anthropus (manusia), paleo (tua), dan javanicus (dari Jawa). Fosil berupa rahang bawah dan gigi geraham berukuran sangat besar ditemukan oleh Gustav Heinrich Ralph von Koenigswald pada tahun 1936–1941 di Sangiran, Jawa Tengah."
+          },
+          {
+            "judul": "Ciri Fisik",
+            "isi": "Meganthropus diperkirakan memiliki tubuh yang tegap, berotot, dan tinggi sekitar 1,75 meter, meskipun perkiraan ini masih bersifat spekulatif karena didasarkan pada ukuran rahang. Ciri lainnya adalah rahang yang sangat besar dan kuat, tidak memiliki dagu seperti manusia modern, tulang pipi yang tebal, tulang kening yang menonjol, serta postur tubuh yang agak membungkuk."
+          },
+          {
+            "judul": "Cara Hidup",
+            "isi": "Meganthropus hidup dengan memanfaatkan sumber daya alam yang tersedia. Makanan utamanya berupa tumbuh-tumbuhan berserat, umbi-umbian, dan buah-buahan liar. Rahang yang besar dan gigi yang kuat membantunya mengunyah makanan yang keras. Hingga kini belum ditemukan bukti yang meyakinkan bahwa Meganthropus telah membuat peralatan yang rumit, sehingga para ahli masih memperdebatkan tingkat perkembangan kebudayaannya."
+          },
+          {
+            "judul": "Fakta Menarik",
+            "isi": "Karena fosil yang ditemukan hanya berupa fragmen rahang dan gigi, banyak informasi mengenai Meganthropus masih didasarkan pada hasil interpretasi para ahli. Oleh sebab itu, status dan hubungan Meganthropus dengan manusia purba lainnya masih menjadi bahan penelitian hingga sekarang."
+          }
+        ]
+      },
+      {
+        "id": "m3-2",
+        "urutan": 13,
+        "kode": "4.2 / PITHECANTHROPUS",
+        "layerColor": "#7a6a52",
+        "judul": "Pithecanthropus Erectus",
+        "ringkasan": "Manusia purba yang ditemukan Eugène Dubois tahun 1891 di Trinil - salah satu 'missing link' paling terkenal dalam sejarah evolusi manusia.",
+        "konten": [
+          {
+            "judul": "Penemuan yang Menggegerkan Dunia",
+            "isi": "Sekitar 1 juta tahun lalu, ketika Meganthropus mulai menghilang, muncul jenis manusia purba yang lebih maju. Namanya Pithecanthropus erectus, artinya “manusia kera yang berjalan tegak”. Ia ditemukan pertama kali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Temuan Dubois menggegerkan dunia sains akhir abad ke-19 karena Pithecanthropus dianggap salah satu “missing link” antara kera dan manusia (Simanjuntak, 2016, hlm. 71–75)."
+          },
+          {
+            "judul": "Kebudayaan Pacitan dan Variasinya di Indonesia",
+            "isi": "Pithecanthropus dianggap sebagai pembuat Kebudayaan Pacitan, dengan alat batu kasar seperti kapak genggam dan kapak perimbas. Jenis Pithecanthropus di Indonesia bervariasi. Selain Pithecanthropus erectus di Trinil, ada juga Pithecanthropus mojokertensis (ditemukan di Mojokerto) dan Pithecanthropus soloensis yang ditemukan di daerah Ngandong dan sekitar Bengawan Solo (Poesponegoro & Notosusanto, 2010, hlm. 118–124)."
+          }
+        ]
+      },
+      {
+        "id": "m3-3",
+        "urutan": 14,
+        "kode": "4.3 / Homo Sapiens",
+        "layerColor": "#7a5c3e",
+        "judul": "Homo Sapiens",
+        "ringkasan": "Sekitar 40.000 sampai 60.000 tahun lalu, jenis manusia yang wajahnya lebih mirip kalian mulai menghuni Nusantara. Namanya Homo sapiens, artinya “manusia yang bijak”. Ini adalah nenek moyang langsung kalian.",
+        "konten": [
+          {
+            "judul": "Temuan Penting di Indonesia",
+            "isi": "Di Indonesia, ada beberapa temuan penting jenis Homo sapiens purba. Homo wajakensis, digali oleh B.D. van Rietschoten tahun 1889 di daerah Wajak, Tulungagung, Jawa Timur. Homo soloensis, ditemukan di daerah Ngandong, di lembah Bengawan Solo."
+          },
+          {
+            "judul": "Ciri Fisik",
+            "isi": "Ciri fisik.\n• Tinggi kurang lebih 1,73 m, postur ramping.\n• Volume otak 1.300 sampai 1.450 cc (hampir dua kali lipat Pithecanthropus).\n• Wajah lebih rata.\n• Dahi tegak, tidak miring ke belakang.\n• Tulang alis tipis.\n• Sudah punya dagu."
+          },
+          {
+            "judul": "Kebudayaan",
+            "isi": "Kebudayaan Homo Sapiens jauh lebih beragam. Di masa Mesolitikum, mereka mulai melukis di dinding gua, membuat mata panah dan tombak yang halus, menetap di gua abris sous roche, dan meninggalkan sampah kerang kjokkenmoddinger di pesisir. Di masa Neolitikum, mereka membuat gerabah, mengasah batu jadi beliung persegi dan kapak lonjong, menanam padi, dan membangun perkampungan. Di masa Perundagian, mereka melebur logam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau. Dengan kata lain, hampir seluruh peninggalan yang kalian pelajari di Bagian 3 dibuat oleh Homo Sapiens."
+          }
+        ]
+      }
+    ]
+  }
+]
