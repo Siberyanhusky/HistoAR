@@ -1,4 +1,26 @@
 {
+  "id": "m1-praaksara",
+  "urutan": 0,
+  "kode": "1 / PRAAKSARA",
+  "layerColor": "#5a4632",
+  "judul": "Praaksara: Kehidupan Sebelum Ada Tulisan",
+  "ringkasan": "Bayangkan menggali kebun dan cangkul membentur batu berbentuk aneh, tajam di satu sisi. Tanpa tulisan, bagaimana kita tahu itu buatan manusia, berapa umurnya, dan siapa yang pernah menggenggamnya?",
+  "konten": [
+    {
+      "judul": "Sebuah Teka-Teki dari Tanah",
+      "isi": "Bayangkan kalian sedang menggali kebun di halaman rumah. Cangkul kalian membentur sesuatu yang keras. Setelah dibersihkan, muncul batu berbentuk aneh: pipih, tajam di satu sisi, mirip kapak tanpa tangkai. Batu itu jelas bukan buatan pabrik, tidak ada cap merek maupun tulisan yang menandai pembuatnya. Sebelum lanjut, coba jawab tiga pertanyaan: dari mana kalian tahu benda itu buatan manusia bukan kebetulan alam, berapa umurnya dan siapa yang pertama kali menggenggamnya, dan kalau tidak ada catatan tertulis, bukti apa yang bisa dipercaya?"
+    },
+    {
+      "judul": "Apa itu Praaksara",
+      "isi": "Praaksara berarti \"sebelum tulisan\". Istilah lainnya adalah nirleka, dari bahasa Sanskerta (nir = tanpa, leka = tulisan). Zaman praaksara adalah masa saat manusia sudah hidup tetapi belum mengenal aksara (Poesponegoro & Notosusanto, 2010, hlm. 15)."
+    },
+    {
+      "judul": "Bukti Tanpa Tulisan",
+      "isi": "Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
+    }
+  ]
+},
+{
   "materi": [
     {
       "id": "m1",
