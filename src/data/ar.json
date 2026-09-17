@@ -1,6 +1,59 @@
 {
   "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile.",
   "_petunjuk_defaultView": "defaultView/view = tampilan awal saat target atau hotspot dipilih. SATUAN ZOOM = KELIPATAN LEBAR MARKER: 1.0 = sisi terpanjang model sama dengan lebar marker, 0.85 = muat utuh dengan margin (default), >1 = close-up. Engine mengukur bounding box tiap GLB saat dimuat lalu menormalkannya, jadi angka ini berlaku sama untuk semua model tanpa kalibrasi tangan. Field \"scale\" sudah TIDAK dipakai lagi.",
+  "m1-praaksara": {
+  "targetMind": "/assets/ar/targets/teka-teki-tanah.mind",
+  "maxZoom": 4,
+  "targets": [
+    {
+      "key": "teka-teki-tanah",
+      "label": "Praaksara: Kehidupan Sebelum Ada Tulisan",
+      "targetIndex": 0,
+      "model": "/assets/models/diorama/teka-teki-tanah.glb",
+      "defaultView": {
+        "rotY": 0,
+        "zoom": 0.85,
+        "focus": [0, 0, 0]
+      },
+      "introAudio": "/assets/audio/praaksara/kehidupan-sebelum-ada-tulisan.mp3",
+      "hotspots": [
+        {
+          "id": "hero-batu",
+          "label": "Dari mana tahu buatan manusia?",
+          "audio": "/assets/audio/praaksara/hero-batu.mp3",
+          "teks": "Perhatikan sisi tajamnya: ada jejak pukul berulang (retus) yang berpola, tidak acak seperti pecahan alam. Sisi tajam yang retus inilah ciri kapak perimbas Pacitan — bukti buatan manusia. Batu alam bulat di sebelahnya jadi pembanding: permukaannya acak, tanpa pola pukul.",
+          "view": {
+            "rotY": 0,
+            "zoom": 2.2,
+            "focus": [0.18, -0.05, 0.08]
+          }
+        },
+        {
+          "id": "lapisan-tanah",
+          "label": "Berapa umur & siapa yang genggam?",
+          "audio": "/assets/audio/praaksara/lapisan-tanah.mp3",
+          "teks": "Lapisan tanah = jam waktu. Makin dalam makin tua: humus (atas), lempung kuning (tengah, tempat kapak ditemukan), kerikil bawah. Kapak di lapisan tengah ≈ 1 juta tahun, sezaman Pithecanthropus pembuat Kebudayaan Pacitan. Stratigrafi Sangiran (Pucangan-Kabuh-Notopuro) pakai prinsip sama.",
+          "view": {
+            "rotY": 0,
+            "zoom": 1.4,
+            "focus": [0, -0.02, -0.08]
+          }
+        },
+        {
+          "id": "bukti-tanpa-tulisan",
+          "label": "Bukti tanpa tulisan?",
+          "audio": "/assets/audio/praaksara/bukti-tanpa-tulisan.mp3",
+          "teks": "Tanpa tulisan, bukti praaksara adalah benda: batu (kapak), tulang, sampah dapur kjokkenmoddinger, cap tangan di dinding gua, dan fosil. Dari 5 jenis benda inilah arkeolog susun cerita — disebut traseologi untuk baca jejak pakai di batu.",
+          "view": {
+            "rotY": 15,
+            "zoom": 1.8,
+            "focus": [-0.18, -0.05, 0.05]
+          }
+        }
+      ]
+    }
+  ]
+},
   "m1": {
     "targetMind": "/assets/ar/targets/periodisasi-geologi.mind",
     "targets": [
