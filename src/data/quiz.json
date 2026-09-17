@@ -1,5 +1,62 @@
 {
   "quiz": {
+    "m1-praaksara": [
+  {
+    "id": "m1-praaksaraq1",
+    "pertanyaan": "Apa arti kata \"praaksara\"?",
+    "opsi": [
+      "Sebelum ada manusia",
+      "Sebelum ada tulisan",
+      "Sebelum ada api",
+      "Sebelum ada logam"
+    ],
+    "jawaban": 1
+  },
+  {
+    "id": "m1-praaksaraq2",
+    "pertanyaan": "Istilah \"nirleka\" berasal dari bahasa Sanskerta yang berarti...",
+    "opsi": [
+      "Tanpa tulisan",
+      "Tanpa manusia",
+      "Tanpa alat",
+      "Tanpa api"
+    ],
+    "jawaban": 0
+  },
+  {
+    "id": "m1-praaksaraq3",
+    "pertanyaan": "Tanpa catatan tertulis, bukti apa yang dipakai arkeolog dan geolog untuk menyusun sejarah masa praaksara?",
+    "opsi": [
+      "Prasasti dan kitab kuno",
+      "Benda seperti batu, tulang, sampah dapur, cap tangan, dan fosil",
+      "Foto satelit",
+      "Catatan lisan turun-temurun"
+    ],
+    "jawaban": 1
+  },
+  {
+    "id": "m1-praaksaraq4",
+    "pertanyaan": "Ciri yang membedakan kapak perimbas buatan manusia dari batu alam biasa adalah...",
+    "opsi": [
+      "Warnanya lebih terang",
+      "Ukurannya selalu besar",
+      "Ada jejak pukul berulang (retus) yang berpola di sisi tajamnya",
+      "Ditemukan di sungai"
+    ],
+    "jawaban": 2
+  },
+  {
+    "id": "m1-praaksaraq5",
+    "pertanyaan": "Prinsip dasar untuk memperkirakan usia benda dari lapisan tanah tempat ditemukannya adalah...",
+    "opsi": [
+      "Semakin dalam lapisan, semakin tua usianya",
+      "Semakin dalam lapisan, semakin muda usianya",
+      "Usia tidak bisa diperkirakan dari lapisan tanah",
+      "Hanya warna tanah yang menentukan usia"
+    ],
+    "jawaban": 0
+  }
+],
     "m1": [
       {
         "id": "m1q1",
