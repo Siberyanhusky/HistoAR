@@ -1,6 +1,5 @@
-[
   {
-    "m1-praaksara": [
+    "materi": [
       {
         "id": "m1-praaksara",
         "urutan": 0,
@@ -22,11 +21,7 @@
             "isi": "Tanpa tulisan, kita tidak bisa membaca surat, prasasti, atau kitab dari zaman itu. Yang tersisa hanya benda: batu, tulang, sampah dapur, cap tangan di dinding gua, dan fosil manusia purba. Dari benda-benda inilah arkeolog dan geolog menyusun cerita panjang leluhur kalian (Soejono, 2008, hlm. 107)."
           }
         ]
-      }
-    ]
-  },
-  {
-    "materi": [
+      },
       {
         "id": "m1",
         "urutan": 1,
