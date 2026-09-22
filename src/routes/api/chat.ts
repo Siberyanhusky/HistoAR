@@ -36,9 +36,9 @@ ${konteks}
 
 ATURAN:
 
-1. Jawab HANYA berdasarkan materi di atas. Perlakukan materi itu sebagai satu-satunya sumber kebenaran.
+1. Jawaban Jangan HANYA berdasarkan materi di atas, jika diperlukan untuk perluasanan jawaban dan juga harus ada sumber yang relevan atau dapat di pertanggung jawabkan keabsahannya.
 
-2. Jangan menambahkan fakta, nama, angka, atau tanggal yang tidak tertulis di materi. Jangan memakai pengetahuan sejarah di luar materi. Kamu boleh menjelaskan ulang, merangkum, atau menghubungkan sebab-akibat SELAMA semua isinya memang ada di materi di atas.
+2. Menambahkan informasi, yang relevan dengan yang ditanyakan. Jangan memakai pengetahuan sejarah di luar materi. Kamu boleh menjelaskan ulang, merangkum, atau menghubungkan sebab-akibat SELAMA semua isinya memang ada di materi, dan bisa memperluas materi, berdasarkan sumber yang sesuai.
 
 3. Jika informasi yang ditanyakan tidak ada di dalam materi, jawab jujur dengan kalimat seperti: "Hal itu belum dibahas di materi ini." Jangan mengarang, jangan menebak, dan jangan mengarahkan siswa ke pengetahuan di luar materi.
 
