@@ -6,11 +6,10 @@ import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
-// Lewat gateway Kie.ai (OpenAI-compatible), bukan Gemini API langsung -
-// Kie.ai masih support gemini-2.5-flash meski Google sendiri udah
-// nyetop model itu untuk API key baru. Nama model taruh di URL path.
-const MODEL = "gemini-3-5-flash-openai";
-const API_URL = `https://api.kie.ai/${MODEL}/v1/chat/completions`;
+// Lewat gateway Kie.ai, endpoint Responses API (bukan chat/completions) -
+// wajib untuk model GPT-5.5. Model dikirim di body, bukan di URL path.
+const MODEL = "gpt-5-5";
+const API_URL = "https://api.kie.ai/codex/v1/responses";
 
 function cariMateri(id: string) {
   return (materiData as MateriData).materi.find((m) => m.id === id);
@@ -103,7 +102,9 @@ export const Route = createFileRoute("/api/chat")({
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              messages: [{ role: "user", content: [{ type: "text", text: prompt }] }],
+              model: MODEL,
+              stream: false,
+              input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }],
             }),
           });
 
@@ -113,7 +114,12 @@ export const Route = createFileRoute("/api/chat")({
             return Response.json(json, { status: response.status });
           }
 
-          const reply = json.choices?.[0]?.message?.content ?? "Maaf, tidak ada balasan dari AI.";
+          const messageItem = json.output?.find(
+            (item: { type: string }) => item.type === "message",
+          );
+          const reply =
+            messageItem?.content?.find((c: { type: string }) => c.type === "output_text")
+              ?.text ?? "Maaf, tidak ada balasan dari AI.";
 
           return Response.json({ reply });
         } catch (err) {
