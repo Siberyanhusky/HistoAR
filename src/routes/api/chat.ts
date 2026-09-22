@@ -8,7 +8,7 @@ import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
 // Lewat gateway Kie.ai, endpoint Responses API (bukan chat/completions) -
 // wajib untuk model GPT-5.5. Model dikirim di body, bukan di URL path.
-const MODEL = "gpt-5-5";
+const MODEL = "gpt-5-6-luna";
 const API_URL = "https://api.kie.ai/codex/v1/responses";
 
 function cariMateri(id: string) {
