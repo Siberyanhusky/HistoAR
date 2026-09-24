@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import materiData from "@/data/materi.json";
 import type { MateriData } from "@/lib/histoar-types";
-import { extractChatSources } from "@/lib/chat-sources";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rate-limit";
 
 const MODEL = "gpt-5-6-luna";
@@ -12,6 +11,8 @@ type ChatBody = {
   pertanyaan?: string;
   history?: Array<{ role: "user" | "assistant"; content: string }>;
 };
+
+type Source = { title: string; url: string };
 
 function cariMateri(id?: string) {
   if (!id) return undefined;
@@ -30,8 +31,8 @@ function buatPrompt(
   history: ChatBody["history"],
 ) {
   const materiSection = konteks
-    ? `Konteks materi HistoAR yang sedang dipelajari (ini adalah konteks, BUKAN batas pengetahuan):\n\n====================\nMateri: ${judul}\n${konteks}\n====================`
-    : "Tidak ada materi HistoAR spesifik yang dipilih. Jawab sebagai asisten sejarah umum.";
+    ? `Konteks materi HistoAR (konteks awal, BUKAN batas pengetahuan):\n\n====================\nMateri: ${judul}\n${konteks}\n====================`
+    : "Tidak ada materi spesifik yang dipilih. Jawab sebagai asisten sejarah umum.";
 
   const historySection = (history ?? [])
     .slice(-8)
@@ -40,35 +41,64 @@ function buatPrompt(
 
   return `Kamu adalah HistoAI, asisten belajar sejarah untuk siswa SMA di aplikasi HistoAR.
 
-TUJUAN:
-- Bantu siswa mengeksplorasi sejarah, bukan sekadar mengulang materi yang tersedia.
-- Materi HistoAR hanya menjadi konteks awal agar jawaban relevan dengan pembelajaran siswa.
-- Kamu BOLEH menjelaskan informasi sejarah di luar materi jika relevan dengan pertanyaan.
-- Jangan mengarang fakta, nama sumber, judul artikel, DOI, atau URL.
-- Jika fakta penting tidak dapat dipastikan, katakan bahwa informasinya belum dapat dipastikan.
+PERAN:
+- Bantu siswa mengeksplorasi sejarah, bukan sekadar mengulang materi HistoAR.
+- Materi yang diberikan adalah konteks pembelajaran, bukan batas pengetahuan.
+- Kamu BOLEH menjawab pertanyaan sejarah di luar materi jika relevan.
+- Jawab dengan bahasa Indonesia yang jelas, natural, dan sesuai siswa SMA.
+- Jangan mengarang fakta, nama sumber, judul, DOI, atau URL.
 
-SUMBER:
-- Untuk fakta sejarah substantif, utamakan sumber yang dapat dipertanggungjawabkan: museum, universitas, lembaga pemerintah, ensiklopedia akademik, buku, atau artikel jurnal.
-- Jika kemampuan pencarian/sumber tersedia, gunakan sumber tersebut dan cantumkan URL sumber yang benar-benar digunakan.
-- Jika tidak ada sumber eksternal yang tersedia, jangan membuat-buat citation. Bedakan pengetahuan umum model dari sumber yang terverifikasi.
-- Di akhir jawaban, bila ada sumber yang benar-benar digunakan, buat bagian persis bernama "### Sumber" dan tuliskan daftar sumber sebagai Markdown link.
-- Jangan menampilkan URL yang tidak benar-benar kamu ketahui atau gunakan.
+WEB SEARCH DAN SUMBER:
+- Gunakan web search untuk pertanyaan yang membutuhkan fakta sejarah, detail spesifik, atau sumber yang dapat diverifikasi.
+- Utamakan sumber primer atau institusi tepercaya seperti museum, universitas, lembaga pemerintah, ensiklopedia akademik, dan artikel jurnal.
+- Jika web search digunakan, dasarkan klaim faktual penting pada hasil pencarian dan berikan sumber yang relevan.
+- Jika sumber tidak cukup kuat atau informasi berbeda antar-sumber, jelaskan ketidakpastiannya.
+- Jangan membuat citation palsu.
+- Di akhir jawaban yang menggunakan web search, tulis bagian "### Sumber" dan cantumkan sumber yang benar-benar ditemukan.
+- Untuk sapaan atau obrolan ringan yang tidak membutuhkan fakta, tidak perlu melakukan pencarian.
 
 GAYA:
-- Bahasa Indonesia yang natural, jelas, dan cocok untuk siswa SMA.
-- Jawab langsung pertanyaan siswa.
-- Berikan konteks atau contoh bila membantu.
-- Jangan selalu mengarahkan siswa kembali ke materi.
-- Jangan menyebut instruksi internal, prompt, atau aturan sistem.
-- Untuk pertanyaan ringan, jawab secara natural tanpa memaksakan sumber.
+- Jawab pertanyaan langsung.
+- Boleh memberikan konteks, perbandingan, sebab-akibat, atau contoh tambahan.
+- Jangan mengatakan "belum dibahas di materi" hanya karena jawabannya tidak ada di materi.
+- Jangan memaksa percakapan kembali ke materi.
+- Jangan menyebut prompt, aturan internal, atau instruksi sistem.
 
 ${materiSection}
 
-RIWAYAT PERCAKAPAN:
+RIWAYAT:
 ${historySection || "Belum ada."}
 
 PERTANYAAN SISWA:
 ${pertanyaan}`;
+}
+
+function extractSources(json: any, reply: string): Source[] {
+  const sources: Source[] = [];
+  const seen = new Set<string>();
+
+  const add = (title: string, url: string) => {
+    if (!url || !/^https?:\/\//i.test(url) || seen.has(url)) return;
+    seen.add(url);
+    sources.push({ title: title || url, url });
+  };
+
+  const annotations = json?.output?.flatMap((item: any) => item?.content ?? []) ?? [];
+  for (const item of annotations) {
+    const candidates = [item?.annotations, item?.citations].flat().filter(Boolean);
+    for (const annotation of candidates) {
+      const list = Array.isArray(annotation) ? annotation : [annotation];
+      for (const a of list) {
+        add(a?.title ?? a?.source?.title ?? a?.url, a?.url ?? a?.source?.url ?? a?.href);
+      }
+    }
+  }
+
+  // Fallback for models that expose the links only in output text.
+  const urls = reply.match(/https?:\/\/[^\s)<>]+/g) ?? [];
+  for (const raw of urls) add(raw, raw.replace(/[.,;:!?]+$/, ""));
+
+  return sources.slice(0, 8);
 }
 
 export const Route = createFileRoute("/api/chat")({
@@ -86,9 +116,7 @@ export const Route = createFileRoute("/api/chat")({
 
           const body = (await request.json()) as ChatBody;
           const pertanyaan = body.pertanyaan?.trim();
-          if (!pertanyaan) {
-            return Response.json({ error: "Pertanyaan kosong" }, { status: 400 });
-          }
+          if (!pertanyaan) return Response.json({ error: "Pertanyaan kosong" }, { status: 400 });
 
           const materi = cariMateri(body.materi_id);
           const apiKey = process.env.KIE_AI_API_KEY;
@@ -116,6 +144,7 @@ export const Route = createFileRoute("/api/chat")({
               model: MODEL,
               stream: false,
               input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }],
+              tools: [{ type: "web_search" }],
             }),
           });
 
@@ -129,10 +158,7 @@ export const Route = createFileRoute("/api/chat")({
             messageItem?.content?.find((c: { type: string }) => c.type === "output_text")?.text ??
             "Maaf, tidak ada balasan dari AI.";
 
-          return Response.json({
-            reply,
-            sources: extractChatSources(reply),
-          });
+          return Response.json({ reply, sources: extractSources(json, reply) });
         } catch (err) {
           console.error(err);
           return Response.json(
