@@ -2,6 +2,7 @@ import { Send, Sparkles, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 import { askHistoAI } from "../../lib/histo-ai";
+import { renderMarkdownLite } from "../../lib/markdown-lite";
 
 type Message = { role: "ai" | "user"; text: string };
 
@@ -99,14 +100,14 @@ export function AIGuide() {
                 key={i}
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div
-                  className={`max-w-[80%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm ${
+                                <div
+                  className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${
                     m.role === "user"
                       ? "bg-primary text-primary-foreground"
                       : "border border-border bg-background/40 text-foreground"
                   }`}
                 >
-                  {m.text}
+                  {renderMarkdownLite(m.text)}
                 </div>
               </div>
             ))}
