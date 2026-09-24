@@ -20,7 +20,7 @@ function cariMateri(id?: string) {
 }
 
 function konteksMateri(materi: NonNullable<ReturnType<typeof cariMateri>>) {
-  const bagian = materi.konten.map((k) => `### ${k.judul}\n${k.isi}`).join("\n\n");
+  const bagian = materi.konten.map((k) => `${k.judul}\n${k.isi}`).join("\n\n");
   return `${materi.ringkasan}\n\n${bagian}`;
 }
 
@@ -48,19 +48,20 @@ PERAN:
 - Jawab dengan bahasa Indonesia yang jelas, natural, ringkas, dan sesuai siswa SMA.
 - Jangan mengarang fakta, nama sumber, judul, DOI, atau URL.
 
-FORMAT JAWABAN:
-- Jangan gunakan Markdown tebal atau miring.
-- Jangan gunakan karakter asterisk (*) untuk penekanan atau bullet.
-- Gunakan paragraf biasa atau daftar bernomor 1., 2., 3. jika diperlukan.
-- Jangan menambahkan format yang tidak diperlukan.
+FORMAT JAWABAN — WAJIB:
+- Jangan gunakan karakter asterisk (*) sama sekali. Jangan gunakan untuk bold, italic, bullet, atau tujuan apa pun.
+- Jangan gunakan Markdown bold atau italic.
+- Jangan gunakan bullet dengan simbol apa pun. Jika perlu daftar, gunakan nomor 1., 2., 3.
+- Gunakan paragraf biasa untuk jawaban singkat.
+- Jangan menambahkan tanda bintang meskipun biasanya digunakan untuk format Markdown.
 
 WEB SEARCH DAN SUMBER:
-- Prioritaskan kecepatan. JANGAN melakukan web search untuk pertanyaan sederhana yang jawabannya sudah dapat dijelaskan dengan konteks materi HistoAR.
-- Gunakan web search hanya jika pertanyaan meminta informasi di luar konteks materi, detail spesifik yang perlu diverifikasi, informasi terbaru, atau siswa secara eksplisit meminta sumber/referensi.
+- Prioritaskan kecepatan. Jangan melakukan web search untuk pertanyaan sederhana yang jawabannya sudah dapat dijelaskan dengan konteks materi HistoAR.
+- Gunakan web search hanya jika pertanyaan meminta informasi di luar konteks materi, detail spesifik yang perlu diverifikasi, informasi terbaru, atau siswa secara eksplisit meminta sumber atau referensi.
 - Jika web search digunakan, utamakan museum, universitas, lembaga pemerintah, ensiklopedia akademik, buku, atau artikel jurnal.
 - Jika web search digunakan, dasarkan klaim faktual penting pada hasil pencarian dan berikan sumber yang benar-benar ditemukan.
 - Jangan membuat citation palsu.
-- Jika menggunakan web search, akhiri dengan teks biasa "Sumber:" lalu daftar bernomor. Jangan gunakan heading Markdown.
+- Jika menggunakan web search, akhiri dengan teks biasa "Sumber:" lalu daftar bernomor. Jangan gunakan heading Markdown atau tanda bintang.
 - Untuk pertanyaan sederhana yang dijawab dari konteks materi, tidak perlu melakukan pencarian dan tidak perlu menambahkan sumber.
 
 GAYA:
@@ -78,6 +79,14 @@ ${historySection || "Belum ada."}
 
 PERTANYAAN SISWA:
 ${pertanyaan}`;
+}
+
+function bersihkanFormat(reply: string) {
+  return reply
+    .replace(/\*/g, "")
+    .replace(/^\s*[-•]\s+/gm, "")
+    .replace(/^[ \t]+/gm, "")
+    .trim();
 }
 
 function parseKieResponse(raw: string): any {
@@ -209,11 +218,12 @@ export const Route = createFileRoute("/api/chat")({
           const messageItem = json.output?.find(
             (item: { type: string }) => item.type === "message",
           );
-          const reply =
+          const rawReply =
             messageItem?.content?.find((c: { type: string }) => c.type === "output_text")?.text ??
             "Maaf, tidak ada balasan dari AI.";
+          const reply = bersihkanFormat(rawReply);
 
-          return Response.json({ reply, sources: extractSources(json, reply) });
+          return Response.json({ reply, sources: extractSources(json, rawReply) });
         } catch (err) {
           console.error("/api/chat error", err);
           return Response.json(
