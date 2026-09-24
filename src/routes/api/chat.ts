@@ -73,6 +73,45 @@ PERTANYAAN SISWA:
 ${pertanyaan}`;
 }
 
+function parseKieResponse(raw: string): any {
+  const trimmed = raw.trim();
+  if (!trimmed) throw new Error("KIE mengembalikan respons kosong.");
+
+  // KIE documents the Responses endpoint as text/event-stream. Some responses
+  // are nevertheless plain JSON, so support both formats.
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    // Continue with SSE parsing.
+  }
+
+  const events = trimmed
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith("data:"))
+    .map((line) => line.slice(5).trim())
+    .filter((data) => data && data !== "[DONE]")
+    .map((data) => {
+      try {
+        return JSON.parse(data);
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  if (!events.length) {
+    throw new Error(`Respons KIE tidak dapat dibaca: ${trimmed.slice(0, 500)}`);
+  }
+
+  // Prefer the final complete response object. Otherwise merge output items
+  // from streaming events into a compatible Responses-style object.
+  const complete = [...events].reverse().find((event) => Array.isArray(event?.output));
+  if (complete) return complete;
+
+  const output = events.flatMap((event) => (Array.isArray(event?.output) ? event.output : []));
+  return { output };
+}
+
 function extractSources(json: any, reply: string): Source[] {
   const sources: Source[] = [];
   const seen = new Set<string>();
@@ -94,9 +133,8 @@ function extractSources(json: any, reply: string): Source[] {
     }
   }
 
-  // Fallback for models that expose the links only in output text.
   const urls = reply.match(/https?:\/\/[^\s)<>]+/g) ?? [];
-  for (const raw of urls) add(raw, raw.replace(/[.,;:!?]+$/, ""));
+  for (const rawUrl of urls) add(rawUrl, rawUrl.replace(/[.,;:!?]+$/, ""));
 
   return sources.slice(0, 8);
 }
@@ -148,9 +186,23 @@ export const Route = createFileRoute("/api/chat")({
             }),
           });
 
-          const json = await response.json();
-          if (!response.ok) return Response.json(json, { status: response.status });
+          const raw = await response.text();
+          if (!response.ok) {
+            let detail = raw.slice(0, 1000);
+            try {
+              const errorJson = JSON.parse(raw);
+              detail = errorJson?.msg ?? errorJson?.message ?? errorJson?.error?.message ?? detail;
+            } catch {
+              // Keep raw response as the diagnostic detail.
+            }
+            console.error("KIE API error", response.status, detail);
+            return Response.json(
+              { error: `KIE API ${response.status}: ${detail}` },
+              { status: 502 },
+            );
+          }
 
+          const json = parseKieResponse(raw);
           const messageItem = json.output?.find(
             (item: { type: string }) => item.type === "message",
           );
@@ -160,7 +212,7 @@ export const Route = createFileRoute("/api/chat")({
 
           return Response.json({ reply, sources: extractSources(json, reply) });
         } catch (err) {
-          console.error(err);
+          console.error("/api/chat error", err);
           return Response.json(
             { error: err instanceof Error ? err.message : "Unknown error" },
             { status: 500 },
